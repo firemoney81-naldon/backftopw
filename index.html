@@ -3,748 +3,1413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="bPeyJ_S-8nWUQOJ-jHeV7UVtUrtM_aln4fud6O-cZHc" />
+    
+    
     <title>초보도 쉽게 차보험 선택·비교 완전정리</title>
-    <style>
-        /* 기본 스타일 및 폰트 설정 */
+
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+
+        :root {
+            /* 부드러운 색감 팔레트 */
+            --color-primary: #3498db; /* 밝은 파랑 */
+            --color-secondary: #2ecc71; /* 부드러운 녹색 */
+            --color-accent: #e74c3c; /* 포인트 빨강 */
+            --color-background-soft: #ecf0f1; /* 매우 밝은 회색 */
+            --color-background-card: #ffffff; /* 흰색 카드 배경 */
+            --color-text-dark: #2c3e50; /* 진한 남색 텍스트 (가독성 최우선) */
+            --color-text-light: #7f8c8d; /* 연한 회색 텍스트 */
+            --color-hover: #f1c40f; /* 호버 시 노랑 */
+        }
+
         body {
-            font-family: 'Malgun Gothic', 'Dotum', sans-serif;
-            background-color: #F8F9FA; /* 부드러운 오프 화이트 배경 */
-            color: #343A40; /* 짙은 회색 텍스트로 가독성 확보 */
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--color-background-soft);
+            color: var(--color-text-dark);
             line-height: 1.6;
             margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
         }
 
-        /* 헤더 스타일 */
-        .header {
+        header {
             text-align: center;
+            padding: 40px 20px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 15px;
             margin-bottom: 40px;
-            padding: 20px;
-            background-color: #E9ECEF; /* 헤더 배경에 약간의 대비 */
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .header h1 {
-            color: #1E3A8A; /* 명확한 제목 색상 */
+        header h1 {
+            font-weight: 700;
             font-size: 2.5em;
             margin-bottom: 10px;
-            font-weight: 700;
         }
 
-        .header p {
+        header p {
+            font-weight: 300;
             font-size: 1.1em;
-            color: #6C757D;
+            opacity: 0.9;
         }
 
-        /* 그리드 컨테이너 (다채롭고 비-경직된 레이아웃) */
-        .link-grid {
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px; /* 항목 간 충분한 간격 */
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        /* 개별 링크 카드 스타일 (부드러운 색감) */
-        .grid-item {
-            background-color: #FFFFFF;
-            border: 1px solid #DEE2E6;
+        .insurance-item {
+            background-color: var(--color-background-card);
             border-radius: 12px;
-            padding: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            min-height: 180px; /* 카드 최소 높이 설정 */
         }
 
-        .grid-item:hover {
+        .insurance-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* 키워드 (제목) 스타일 */
-        .keyword {
-            font-size: 1.3em;
+        .keyword-link {
+            font-size: 1.4em;
             font-weight: 700;
-            color: #2D4D9D; /* 키워드 강조 색상 */
+            color: var(--color-primary);
+            text-decoration: none;
+            display: block;
             margin-bottom: 10px;
-            border-bottom: 2px solid #ADB5BD; /* 명확한 시각적 계층 구조 */
-            padding-bottom: 5px;
+            word-break: keep-all;
+            transition: color 0.3s ease;
         }
 
-        /* 설명 문구 (링크) 스타일 */
+        .keyword-link:hover {
+            color: var(--color-accent);
+        }
+
         .description-link {
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--color-text-dark);
             text-decoration: none;
-            color: #495057; /* 텍스트가 잘 보이도록 어두운 색상 */
-            font-size: 1.05em;
-            display: block; /* 전체 블록이 클릭되도록 */
-            padding-top: 5px;
-            transition: color 0.2s ease;
-            flex-grow: 1;
+            display: block;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: rgba(46, 204, 113, 0.1); /* secondary 색상에 투명도 적용 */
+            border-left: 5px solid var(--color-secondary);
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
         }
 
         .description-link:hover {
-            color: #1E3A8A; /* 호버 시 색상 변화 */
-            text-decoration: underline;
+            background-color: rgba(46, 204, 113, 0.2);
+            color: var(--color-primary);
         }
 
-        /* 카드별 배경색 변화 (다채로움 추가) */
-        .grid-item:nth-child(3n+1) { background-color: #E6F0FF; /* Pale Blue */ }
-        .grid-item:nth-child(3n+2) { background-color: #E0FFE6; /* Mint Green */ }
-        .grid-item:nth-child(3n+3) { background-color: #F5E6FF; /* Soft Lavender */ }
+        .link-text {
+            color: var(--color-text-light);
+            font-size: 0.85em;
+            word-break: break-all;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* 미디어 쿼리: 모바일 최적화 */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 10px;
+            }
+            header {
+                padding: 30px 15px;
+                margin-bottom: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .insurance-item {
+                padding: 20px;
+            }
+            .keyword-link {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>맞춤형 자동차 보험 비교·견적 서비스 안내</h1>
-    <p>운전자별, 차량별 최적의 조건을 찾아주는 다이렉트 자동차 보험 정보들을 한 눈에 확인하세요. 현명한 선택을 위한 첫 걸음입니다.</p>
+<div class="container">
+    <header>
+        <h1>초보도 쉽게 차보험 선택·비교 완전정리</h1>
+    </header>
+
+    <div class="grid-layout">
+        
+<?php
+// 첨부파일의 데이터를 PHP 배열로 변환
+$data = [
+    '만26세 자동차보험' => 'https://directcarunmea.withusdone.com/',
+    '운전병보험할인' => 'https://directcarunmeb.withusdone.com/',
+    '만21세 자동차보험' => 'https://directcarunmec.withusdone.com/',
+    '만19세 자동차보험' => 'https://directcarunmed.withusdone.com/',
+    '20대자동차보험' => 'https://directcarunmee.withusdone.com/',
+    '나이별자동차보험료' => 'https://directcarunmef.withusdone.com/',
+    '만24세자동차보험' => 'https://directcarunmeg.withusdone.com/',
+    '만20세자동차보험' => 'https://directcarunmeh.withusdone.com/',
+    '신차보험가입' => 'https://directcarunmei.withusdone.com/',
+    '만25세 자동차보험' => 'https://directcarunmej.withusdone.com/',
+    '만23세 자동차보험' => 'https://directcarunmek.withusdone.com/',
+    '20대차보험료' => 'https://directcarunmel.withusdone.com/',
+    '신차자동차보험료' => 'https://directcarunmem.withusdone.com/',
+    '자동차보험연령' => 'https://directcarunmen.withusdone.com/',
+    '만22세자동차보험' => 'https://directcarunmeo.withusdone.com/',
+    '만18세자동차보험' => 'https://directcarunmep.withusdone.com/',
+    '20살차보험료' => 'https://directcarunmeq.withusdone.com/',
+    '30대자동차보험료' => 'https://directcarunmer.withusdone.com/',
+    '21살자동차보험' => 'https://directcarunmes.withusdone.com/',
+    '20살자동차보험' => 'https://directcarunmet.withusdone.com/',
+    '22살자동차보험' => 'https://directcarunmeu.withusdone.com/',
+    '22살자동차보험료' => 'https://directcarunmev.withusdone.com/',
+    '24살자동차보험' => 'https://directcarunmew.withusdone.com/',
+    '40대자동차보험료' => 'https://directcarunmex.withusdone.com/',
+    '23살자동차보험' => 'https://directcarunmey.withusdone.com/',
+    '만28세자동차보험' => 'https://directcarunmez.withusdone.com/',
+    '20대초반자동차보험' => 'https://directcarunma.withusdone.com/',
+    '20대초반자동차보험료' => 'https://directcarunmb.withusdone.com/',
+    '만30세자동차보험' => 'https://directcarunmc.withusdone.com/',
+    '만28세자동차보험료' => 'https://directcarunmd.withusdone.com/',
+    '자동차보험료1년' => 'https://directcarunmf.withusdone.com/',
+    '수입차보험료' => 'https://directupromotiona.withusdone.com/',
+    '차량보험' => 'https://directupromotionb.withusdone.com/',
+    '자동차보험 경력인정' => 'https://directupromotionc.withusdone.com/',
+    '자동차누구나보험' => 'https://directupromotiond.withusdone.com/',
+    '자동차보험료계산기' => 'https://directupromotione.withusdone.com/',
+    '첫차보험료' => 'https://directupromotioni.withusdone.com/',
+    '차보험계산' => 'https://directupromotionj.withusdone.com/',
+    '차량보험료' => 'https://directupromotionl.withusdone.com/',
+    '자동차보험자녀할인' => 'https://directupromotionn.withusdone.com/',
+    '자차보험료' => 'https://directupromotiono.withusdone.com/',
+    '중고차보험료' => 'https://directupromotionp.withusdone.com/',
+    '자동차보험 만기' => 'https://directupromotionq.withusdone.com/',
+    '다이렉트자동차보험추천' => 'https://directupromotionr.withusdone.com/',
+    '자동차보험비' => 'https://directupromotions.withusdone.com/',
+    '자동차보험료 할부' => 'https://directupromotiont.withusdone.com/',
+    '자동차보험책임보험' => 'https://directupromotionv.withusdone.com/',
+    '자동차보험가입방법' => 'https://directupromotionw.withusdone.com/',
+    '실시간자동차보험견적' => 'https://directupromotionx.withusdone.com/',
+    '자동차보험 만나이' => 'https://directupromotiony.withusdone.com/',
+    '아반떼 보험료' => 'https://directupromotionz.withusdone.com/',
+    '카니발보험료' => 'https://directxpromotiona.withusdone.com/',
+    '경차자동차보험' => 'https://directxpromotionb.withusdone.com/',
+    '그랜저보험료' => 'https://directxpromotione.withusdone.com/',
+    '중고차자동차보험' => 'https://directxpromotionf.withusdone.com/',
+    '제네시스보험료' => 'https://directxpromotiong.withusdone.com/',
+    '중고차책임보험' => 'https://directxpromotionh.withusdone.com/',
+    '모닝보험료' => 'https://directxpromotioni.withusdone.com/',
+    'K5보험료' => 'https://directxpromotionk.withusdone.com/',
+    '테슬라보험' => 'https://directxpromotionl.withusdone.com/',
+    '모닝자동차보험' => 'https://directxpromotionm.withusdone.com/',
+    '모닝자동차보험료' => 'https://directxpromotionn.withusdone.com/',
+    '테슬라보험료' => 'https://directxpromotiono.withusdone.com/',
+    '스파크보험료' => 'https://directxpromotionp.withusdone.com/',
+    '트위지보험료' => 'https://directxpromotionq.withusdone.com/',
+    '미니쿠퍼보험료' => 'https://directxpromotionr.withusdone.com/',
+    'G80보험료' => 'https://directxpromotions.withusdone.com/',
+    '푸조보험료' => 'https://directxpromotiont.withusdone.com/',
+    '캠핑카자동차보험' => 'https://directxpromotionu.withusdone.com/',
+    '테슬라자동차보험' => 'https://directxpromotionx.withusdone.com/',
+    '캠핑카보험료' => 'https://caropromotiona.withusdone.com/',
+    '코나보험료' => 'https://caropromotionc.withusdone.com/',
+    'K3보험료' => 'https://caropromotione.withusdone.com/',
+    '코란도스포츠보험료' => 'https://caropromotionf.withusdone.com/',
+    'BMW5시리즈보험료' => 'http://caropromotiong.withusdone.com/',
+    '카니발11인승보험료' => 'https://caropromotioni.withusdone.com/',
+    '티구안보험료' => 'https://caropromotionl.withusdone.com/',
+    '스포츠카보험료' => 'https://caropromotionm.withusdone.com/',
+    '스파크자동차보험' => 'https://caropromotionp.withusdone.com/',
+    'K9보험료' => 'https://caropromotionq.withusdone.com/',
+    '테슬라모델3보험료' => 'https://caropromotionr.withusdone.com/',
+    '다마스보험료' => 'https://caropromotions.withusdone.com/',
+    '팰리세이드보험' => 'https://caropromotiont.withusdone.com/',
+    '카니발자동차보험' => 'https://caropromotionv.withusdone.com/',
+    '스팅어보험료' => 'https://caropromotiony.withusdone.com/',
+    '아우디A3보험료' => 'https://caropromotionz.withusdone.com/',
+    '트래버스보험료' => 'https://carmpromotiona.withusdone.com/',
+    '픽업트럭보험료' => 'https://carmpromotionb.withusdone.com/',
+    '펠리세이드보험료' => 'https://carmpromotiond.withusdone.com/',
+    '벤츠E클래스보험료' => 'https://carmpromotione.withusdone.com/',
+    'EV6보험료' => 'https://carmpromotionf.withusdone.com/',
+    'BMW보험' => 'https://carmpromotionj.withusdone.com/',
+    '폭스바겐 제타 보험료' => 'https://carmpromotionk.withusdone.com/',
+    '렉서스ES300H보험료' => 'https://carmpromotionl.withusdone.com/',
+    'X3보험료' => 'https://carmpromotionm.withusdone.com/',
+    'QM6보험료' => 'https://carmpromotionn.withusdone.com/',
+    '레이자동차보험료' => 'https://carmpromotiono.withusdone.com/',
+    '토레스보험료' => 'https://carmpromotionq.withusdone.com/',
+    'BMW3시리즈보험료' => 'https://carmpromotionr.withusdone.com/',
+    '캐스퍼보험료' => 'https://carmpromotions.withusdone.com/',
+    '파나메라보험료' => 'https://carmpromotiont.withusdone.com/',
+    '티볼리보험료' => 'https://carmpromotionu.withusdone.com/',
+    '쏘나타보험료' => 'http://carmpromotionv.withusdone.com/',
+    '자동차보험특약' => 'https://carnpromotiona.withusdone.com/',
+    '자동차보험비교견적' => 'https://carnpromotionb.withusdone.com/',
+    '자동차보험부부한정' => 'https://carnpromotionc.withusdone.com/',
+    '자동차보험블랙박스할인' => 'https://carnpromotiond.withusdone.com/',
+    '중고차보험' => 'https://carnpromotione.withusdone.com/',
+    '자동차보험료비교' => 'https://carnpromotionf.withusdone.com/',
+    '레이보험료' => 'https://carnpromotiong.withusdone.com/',
+    '중고차보험가입' => 'https://carnpromotionh.withusdone.com/',
+    '스포티지보험료' => 'https://carnpromotioni.withusdone.com/',
+    'K7보험료' => 'https://carnpromotionj.withusdone.com/',
+    '포르쉐보험료' => 'https://carnpromotionk.withusdone.com/',
+    '제네시스G80보험료' => 'https://carnpromotionl.withusdone.com/',
+    'BMW보험료' => 'https://carnpromotionm.withusdone.com/',
+    '벤츠보험료' => 'https://carnpromotionn.withusdone.com/',
+    '싼타페보험료' => 'https://carnpromotiono.withusdone.com/',
+    '투싼보험료' => 'https://carnpromotionp.withusdone.com/',
+    'QM3보험료' => 'https://carnpromotionq.withusdone.com/',
+    '카마로보험료' => 'https://carnpromotionr.withusdone.com/',
+    'G70보험료' => 'https://carnpromotions.withusdone.com/',
+    '아우디A6보험료' => 'https://carnpromotiont.withusdone.com/',
+    '제네시스G70보험료' => 'https://carnpromotionu.withusdone.com/',
+    'X6보험료' => 'https://carnpromotionv.withusdone.com/',
+    '쏘렌토보험료' => 'https://carnpromotionw.withusdone.com/',
+    '카니발9인승보험료' => 'https://carnpromotionx.withusdone.com/',
+    '520D보험료' => 'https://carnpromotiony.withusdone.com/',
+    '넥쏘보험료' => 'https://carnpromotionz.withusdone.com/',
+    '스파크자동차보험료' => 'https://cargpromotiona.withusdone.com/',
+    '캐스퍼자동차보험' => 'https://cargpromotionb.withusdone.com/',
+    '머스탱보험료' => 'https://carmpromotionw.withusdone.com/',
+    '스포티지하이브리드보험료' => 'https://carmpromotiony.withusdone.com/',
+    '제네시스GV80보험료' => 'https://carmpromotionz.withusdone.com/',
+    'K8 하이브리드 보험료' => 'https://carvpromotiona.withusdone.com/',
+    '하이브리드보험료' => 'https://carvpromotionb.withusdone.com/',
+    '아이오닉6보험료' => 'https://carvpromotionc.withusdone.com/',
+    'GV70보험료' => 'https://carvpromotiond.withusdone.com/',
+    '셀토스보험료' => 'https://carvpromotionf.withusdone.com/',
+    'Z4보험료' => 'https://carvpromotiong.withusdone.com/',
+    'GV80보험료' => 'https://carvpromotioni.withusdone.com/',
+    '벨로스터 N 보험료' => 'https://carvpromotionj.withusdone.com/',
+    'X5보험료' => 'https://carvpromotionk.withusdone.com/',
+    '콜로라도보험료' => 'https://carvpromotionl.withusdone.com/',
+    '렉서스보험료' => 'https://carvpromotionm.withusdone.com/',
+    '화물차보험료' => 'https://carvpromotiono.withusdone.com/',
+    '렉스턴스포츠 칸 보험료' => 'https://carvpromotionr.withusdone.com/',
+    '쏘렌토하이브리드보험료' => 'https://carvpromotions.withusdone.com/',
+    '벤츠자동차보험' => 'https://carvpromotiont.withusdone.com/',
+    '아이오닉5보험료' => 'https://carvpromotionu.withusdone.com/',
+    '새차보험' => 'https://carvpromotionv.withusdone.com/',
+    '자동차보험료비교견적사이트' => 'https://directapmoa.withusdone.com/',
+    '자동차보험비교' => 'https://directapmob.withusdone.com/',
+    '자동차보험료비교견적' => 'https://directapmoc.withusdone.com/',
+    '자동차다이렉트보험' => 'https://directapmod.withusdone.com/',
+    '자동차보험다이렉트' => 'https://directapmoe.withusdone.com/',
+    '자동차 다이렉트 비교 견적 사이트 추천' => 'https://directapmof.withusdone.com/',
+    '자동차보험료계산' => 'https://directapmog.withusdone.com/',
+    '다이렉트자동차보험비교' => 'https://directapmoh.withusdone.com/',
+    '자동차보험할증기준' => 'https://directapmoi.withusdone.com/',
+    '자동차책임보험' => 'https://directapmoj.withusdone.com/',
+    '자동차보험료1년' => 'https://directapmok.withusdone.com/',
+    '자동차보험조회' => 'https://directapmol.withusdone.com/',
+    '자동차보험할증' => 'https://directapmom.withusdone.com/',
+    '다이렉트자동차보험비교견적사이트' => 'https://directapmon.withusdone.com/',
+    '자동차보험비교견적' => 'https://directapmoo.withusdone.com/',
+    '다이렉트자동차보험료비교견적사이트' => 'https://directapmop.withusdone.com/',
+    '자동차보험료비교' => 'https://directapmoq.withusdone.com/',
+    '자동차보험료계산기' => 'https://directapmor.withusdone.com/',
+    '자동차보험동일증권' => 'https://directapmos.withusdone.com/',
+    '다이렉트자동차보험비교견적' => 'https://directapmot.withusdone.com/',
+    '자동차보험비교견적사이트' => 'https://directapmou.withusdone.com/',
+    '자동차종합보험' => 'https://directapmov.withusdone.com/',
+    '내자동차보험조회' => 'https://directapmow.withusdone.com/',
+    '자동차보험종류' => 'https://directapmox.withusdone.com/',
+    '자동차보험료할증' => 'https://directapmoy.withusdone.com/',
+    '자동차다이렉트보험비교' => 'https://directapmoz.withusdone.com/',
+    '자동차보험다이렉트비교' => 'https://directbpmoa.withusdone.com/',
+    '자동차보험확인' => 'https://directbpmob.withusdone.com/',
+    '차보험료' => 'https://directbpmoc.withusdone.com/',
+    '20대자동차보험료' => 'https://directbpmod.withusdone.com/',
+    '자동차보험미가입과태료' => 'https://directbpmoe.withusdone.com/',
+    '자동차보험견적' => 'https://directbpmof.withusdone.com/',
+    '차보험' => 'https://directbpmog.withusdone.com/',
+    '자동차보험갱신' => 'https://directbpmoh.withusdone.com/',
+    '자동차보험추천' => 'https://directbpmoi.withusdone.com/',
+    '자동차보험나이' => 'https://directbpmoj.withusdone.com/',
+    '자동차보험비교사이트' => 'https://directbpmok.withusdone.com/',
+    '자동차보험이력조회' => 'https://directbpmol.withusdone.com/',
+    '자동차보험가족한정범위' => 'https://directbpmom.withusdone.com/',
+    '자동차보험자기부담금' => 'https://directbpmon.withusdone.com/',
+    '자동차보험경력인정' => 'https://directbpmoo.withusdone.com/',
+    '자동차의무보험' => 'https://directbpmop.withusdone.com/',
+    '자동차보험가입' => 'https://directbpmoq.withusdone.com/',
+    '다이렉트자동차보험료' => 'https://directbpmor.withusdone.com/',
+    '자동차상해특약' => 'https://directbpmos.withusdone.com/',
+    '자동차보험료조회' => 'https://directbpmot.withusdone.com/',
+    '다이렉트자동차보험비교사이트' => 'https://directbpmou.withusdone.com/',
+    '경차보험료' => 'https://directbpmov.withusdone.com/',
+    '자동차다이렉트보험비교견적사이트' => 'https://directbpmow.withusdone.com/',
+    '자동차보험대물배상' => 'https://directbpmox.withusdone.com/',
+    '자동차보험자차' => 'https://directbpmoy.withusdone.com/',
+    '자차보험할증' => 'https://directbpmoz.withusdone.com/',
+    '자동차보험할부' => 'https://directcpmoa.withusdone.com/',
+    '외제차보험료' => 'https://directcpmob.withusdone.com/',
+    '자동차보험료인상' => 'https://directcpmoc.withusdone.com/',
+    '외제차보험' => 'https://directcpmod.withusdone.com/',
+    '자동차보험승계' => 'https://directcpmoe.withusdone.com/',
+    '자동차보험할인할증등급' => 'https://directcpmof.withusdone.com/',
+    '자동차보험갱신기간' => 'https://directcpmog.withusdone.com/',
+    '자동차보험등급' => 'https://directcpmoh.withusdone.com/',
+    '자동차보험만기' => 'https://directcpmoi.withusdone.com/',
+    '자동차보험만기일' => 'https://directcpmoj.withusdone.com/',
+    '자동차공동명의보험' => 'https://directcpmok.withusdone.com/',
+    '다이렉트자동차보험료비교견적' => 'https://directcpmol.withusdone.com/',
+    '자동차보험 신규' => 'https://directcpmom.withusdone.com/',
+    '다이렉트차보험비교' => 'https://directcpmon.withusdone.com/',
+    '자동차보험가입조회' => 'https://directcpmoo.withusdone.com/',
+    '자동차보험계산' => 'https://directcpmop.withusdone.com/',
+    '자동차책임보험가입' => 'https://directcpmoq.withusdone.com/',
+    '내차보험조회' => 'https://directcpmor.withusdone.com/',
+    '다이렉트자동차보험료비교' => 'https://directcpmos.withusdone.com/',
+    '내가가입한자동차보험조회' => 'https://directcpmot.withusdone.com/',
+    '자동차책임보험가격' => 'https://directcpmou.withusdone.com/',
+    '자차보험자기부담금' => 'https://directcpmov.withusdone.com/',
+    '자동차보험사' => 'https://directcpmow.withusdone.com/',
+    '자동차보험변경' => 'https://directcpmox.withusdone.com/',
+    '자동차보험회사' => 'https://directcpmoy.withusdone.com/',
+    '자동차누구나보험' => 'https://directcpmoz.withusdone.com/',
+    '자동차보험부모님' => 'https://directdpmoa.withusdone.com/',
+    '자동차보험지정1인' => 'https://directdpmob.withusdone.com/',
+    '자동차보험자상' => 'https://directdpmoc.withusdone.com/',
+    '전기차보험료비교' => 'https://directdpmod.withusdone.com/',
+    '자동차상해보험' => 'https://directdpmoe.withusdone.com/',
+    '차량보험료' => 'https://directdpmof.withusdone.com/',
+    '자동차보험가입경력' => 'https://directdpmog.withusdone.com/',
+    '자동차보험견적비교사이트' => 'https://directdpmoh.withusdone.com/',
+    '자동차보험순위' => 'https://directdpmoi.withusdone.com/',
+    '자동차가족보험' => 'https://directdpmoj.withusdone.com/',
+    '다이렉트자동차보험견적' => 'https://directdpmok.withusdone.com/',
+    '자동차보험인상' => 'https://directdpmol.withusdone.com/',
+    '첫차보험료' => 'https://directdpmom.withusdone.com/',
+    '자동차보험사고할증' => 'https://directdpmon.withusdone.com/',
+    '자동차보험자동차상해' => 'https://directdpmoo.withusdone.com/',
+    '차량보험가입조회' => 'https://directdpmop.withusdone.com/',
+    '자동차보험싼곳' => 'https://directdpmoq.withusdone.com/',
+    '법인자동차보험' => 'https://directdpmor.withusdone.com/',
+    '자동차보험이전' => 'https://directdpmos.withusdone.com/',
+    '차량보험조회' => 'https://directdpmot.withusdone.com/',
+    '자동차보험저렴한곳' => 'https://directdpmou.withusdone.com/',
+    '자동차보험인터넷' => 'https://directdpmov.withusdone.com/',
+    '자동차보험벌금' => 'https://directdpmow.withusdone.com/',
+    '자동차보험할증조회' => 'https://directdpmox.withusdone.com/',
+    '자동차보험차량변경' => 'https://directdpmoy.withusdone.com/',
+    '자차보험뜻' => 'https://directdpmoz.withusdone.com/',
+    '타는만큼내는보험' => 'https://directepmoa.withusdone.com/',
+    '자동차보험가격' => 'https://directepmob.withusdone.com/',
+    '자동차자차보험' => 'https://directepmoc.withusdone.com/',
+    '자동차보험다이렉트견적' => 'https://directepmod.withusdone.com/',
+    '자동차명의이전보험' => 'https://directepmoe.withusdone.com/',
+    '저렴한자동차보험' => 'https://directepmof.withusdone.com/',
+    '자동차보험안들면' => 'https://directepmog.withusdone.com/',
+    '자동차책임보험한도' => 'https://directepmoh.withusdone.com/',
+    '자동차2대보험' => 'https://directepmoi.withusdone.com/',
+    '자동차 보험 인상률' => 'https://directepmoj.withusdone.com/',
+    '중고차보험' => 'https://directepmok.withusdone.com/',
+    '신차보험가입' => 'https://directepmol.withusdone.com/',
+    '내자동차보험찾기' => 'https://directepmom.withusdone.com/',
+    '자동차보험미가입' => 'https://directepmon.withusdone.com/',
+    '자동차보험혜택' => 'https://directepmoo.withusdone.com/',
+    '자차보험이란' => 'https://directepmop.withusdone.com/',
+    '자동차보험누구나' => 'https://directepmoq.withusdone.com/',
+    '자동차보험할인등급' => 'https://directepmor.withusdone.com/',
+    '자동차보험료할인' => 'https://directepmos.withusdone.com/',
+    '자동차보험차량가액' => 'https://directepmot.withusdone.com/',
+    '자동차보험대물' => 'https://directepmou.withusdone.com/',
+    '자동차보험일년' => 'https://directepmov.withusdone.com/',
+    '자동차보험명의변경' => 'https://directepmow.withusdone.com/',
+    '자동차보험책임보험' => 'https://directepmox.withusdone.com/',
+    '자동차보험가입확인' => 'https://directepmoy.withusdone.com/',
+    '자동차보험추가' => 'https://directepmoz.withusdone.com/',
+    '자동차보험질권설정' => 'https://directfpmoa.withusdone.com/',
+    '다이렉트자동차보험사이트' => 'https://directfpmob.withusdone.com/',
+    '자동차보험1인추가' => 'https://directfpmoc.withusdone.com/',
+    '자동차보험1년가격' => 'https://directfpmod.withusdone.com/',
+    '자동차보험비' => 'https://directfpmoe.withusdone.com/',
+    '자동차보험등급조회' => 'https://directfpmof.withusdone.com/',
+    '자동차보험주말가입' => 'https://directfpmog.withusdone.com/',
+    '세닉 E-Tech 보험료' => 'https://directfpmoh.withusdone.com/',
+    '자동차보험피보험자' => 'https://directfpmoi.withusdone.com/',
+    '자동차보험가족추가' => 'https://directfpmoj.withusdone.com/',
+    '자동차보험운전경력' => 'https://directfpmok.withusdone.com/',
+    '신차자동차보험' => 'https://directfpmol.withusdone.com/',
+    '자동차보험찾기' => 'https://directfpmom.withusdone.com/',
+    '차보험계산' => 'https://directfpmon.withusdone.com/',
+    '자동차보험무이자할부' => 'https://directfpmoo.withusdone.com/',
+    '자동차보험할증등급' => 'https://directfpmop.withusdone.com/',
+    '자동차보험분할납부' => 'https://directfpmoq.withusdone.com/',
+    '차보험료계산' => 'https://directfpmor.withusdone.com/',
+    '자차할증' => 'https://directfpmos.withusdone.com/',
+    '자동차보험명의' => 'https://directfpmot.withusdone.com/',
+    '자동차보험대인배상2' => 'https://directfpmou.withusdone.com/',
+    '신차보험' => 'https://directfpmov.withusdone.com/',
+    '중고차보험가입' => 'https://directfpmow.withusdone.com/',
+    '차량보험이력조회' => 'https://directfpmox.withusdone.com/',
+    '자동차보험카드결제' => 'https://directfpmoy.withusdone.com/',
+    '자동차보험분납' => 'https://directfpmoz.withusdone.com/',
+    '자동차보험계산기' => 'https://directgpmoa.withusdone.com/',
+    '다이렉트차보험료' => 'https://directgpmob.withusdone.com/',
+    '자동차보험료견적비교' => 'https://directgpmoc.withusdone.com/',
+    '자동차보험연령' => 'https://directgpmod.withusdone.com/',
+    '자동차보험자기신체사고' => 'https://directgpmoe.withusdone.com/',
+    '자동차보험자손' => 'https://directgpmof.withusdone.com/',
+    '자동차보험책임보험만' => 'https://directgpmog.withusdone.com/',
+    '자동차보험기간' => 'https://directgpmoh.withusdone.com/',
+    '자동차보험가격비교' => 'https://directgpmoi.withusdone.com/',
+    '자동차보험자기차량손해' => 'https://directgpmoj.withusdone.com/',
+    '인터넷자동차보험비교견적' => 'https://directgpmok.withusdone.com/',
+    '자동차종합보험가격' => 'https://directgpmol.withusdone.com/',
+    '개인사업자자동차보험' => 'https://directgpmom.withusdone.com/',
+    '자동차보험환입' => 'https://directgpmon.withusdone.com/',
+    '화물차보험' => 'https://directgpmoo.withusdone.com/',
+    '중고차보험료' => 'https://directgpmop.withusdone.com/',
+    '차보험나이' => 'https://directgpmoq.withusdone.com/',
+    '내자동차보험' => 'https://directgpmor.withusdone.com/',
+    '다이렉트자동차보험추천' => 'https://directgpmos.withusdone.com/',
+    '자동차보험회사종류' => 'https://directgpmot.withusdone.com/',
+    '자차보험료' => 'https://directgpmou.withusdone.com/',
+    '자동차보험요율' => 'https://directgpmov.withusdone.com/',
+    '자동차보험카드혜택' => 'https://directgpmow.withusdone.com/',
+    '자동차보험수가' => 'https://directgpmox.withusdone.com/',
+    '자동차보험료견적' => 'https://directgpmoy.withusdone.com/',
+    '벤츠보험료' => 'https://directgpmoz.withusdone.com/',
+    '무면허자동차보험' => 'https://directhpmoa.withusdone.com/',
+    '공동명의자동차보험' => 'https://directhpmob.withusdone.com/',
+    '부모님차보험' => 'https://directhpmoc.withusdone.com/',
+    '자동차보험필수' => 'https://directhpmod.withusdone.com/',
+    '다이렉트자동차보험견적비교' => 'https://directhpmoe.withusdone.com/',
+    '30대자동차보험료 평균 얼마 무료 실시간 조회' => 'https://directhpmof.withusdone.com/',
+    '자동차보험의무' => 'https://directhpmog.withusdone.com/',
+    '자동차보험2대' => 'https://directhpmoh.withusdone.com/',
+    '자동차보험회사순위' => 'https://directhpmoi.withusdone.com/',
+    '자동차보험사확인' => 'https://directhpmoj.withusdone.com/',
+    '자동차보험납부' => 'https://directhpmok.withusdone.com/',
+    '중고차자동차보험' => 'https://directhpmol.withusdone.com/',
+    '자기차량손해보험' => 'https://directhpmom.withusdone.com/',
+    '부부자동차보험' => 'https://directhpmon.withusdone.com/',
+    '자동차보험가입기간' => 'https://directhpmoo.withusdone.com/',
+    '경차자동차보험' => 'https://directhpmop.withusdone.com/',
+    '내차보험료' => 'https://directhpmoq.withusdone.com/',
+    '자동차보험설계사' => 'https://directhpmor.withusdone.com/',
+    '자동차보험갈아타기' => 'https://directhpmos.withusdone.com/',
+    '자동차보험금' => 'https://directhpmot.withusdone.com/',
+    '자동차보험부부' => 'https://directhpmou.withusdone.com/',
+    '자동차보험할인카드' => 'https://directhpmov.withusdone.com/',
+    '자동차보험료분납' => 'https://directhpmow.withusdone.com/',
+    '장애인자동차보험' => 'https://directhpmox.withusdone.com/',
+    '화물차보험료' => 'https://directhpmoy.withusdone.com/',
+    '자동차보험료납부' => 'https://directhpmoz.withusdone.com/',
+    '자동차보험월납' => 'https://directipmoa.withusdone.com/',
+    '자동차 보험 인상률 계산기' => 'https://directipmob.withusdone.com/',
+    '테슬라보험료' => 'https://directipmoc.withusdone.com/',
+    '자동차보험재가입' => 'https://directipmod.withusdone.com/',
+    '제네시스G80보험료' => 'https://directipmoe.withusdone.com/',
+    '자동차보험장애인' => 'https://directipmof.withusdone.com/',
+    '자동차보험신용카드' => 'https://directipmog.withusdone.com/',
+    '자동차보험료확인' => 'https://directipmoh.withusdone.com/',
+    '자동차손해보험' => 'https://directipmoi.withusdone.com/',
+    '다이렉트자동차보험저렴한곳' => 'https://directipmoj.withusdone.com/',
+    '자동차보험중복가입' => 'https://directipmok.withusdone.com/',
+    '자동차보험키로수' => 'https://directipmol.withusdone.com/',
+    '자차보험가입' => 'https://directipmom.withusdone.com/',
+    '자동차보험증명서' => 'https://directipmon.withusdone.com/',
+    '자동차보험6개월' => 'https://directipmoo.withusdone.com/',
+    '자동차보험1년' => 'https://directipmop.withusdone.com/',
+    '자동차보험견적비교' => 'https://directipmoq.withusdone.com/',
+    '자동차보험타는만큼' => 'https://directipmor.withusdone.com/',
+    '자동차보험카드할부' => 'https://directipmos.withusdone.com/',
+    '캠핑카보험' => 'https://directipmot.withusdone.com/',
+    '캠핑카보험료' => 'https://directipmou.withusdone.com/',
+    '자동차보험금액' => 'https://directipmov.withusdone.com/',
+    '자동차보험비용' => 'https://directipmow.withusdone.com/',
+    '차보험조회' => 'https://directipmox.withusdone.com/',
+    '차보험비교사이트' => 'https://directipmoy.withusdone.com/',
+    '자동차보험사추천' => 'https://directipmoz.withusdone.com/',
+    '화물보험' => 'https://directjpmoa.withusdone.com/',
+    '새차보험' => 'https://directjpmob.withusdone.com/',
+    '자동차인터넷보험' => 'https://directjpmoc.withusdone.com/',
+    '차량책임보험' => 'https://directjpmod.withusdone.com/',
+    '다이렉트자동차보험료계산' => 'https://directjpmoe.withusdone.com/',
+    '자동차보험담보' => 'https://directjpmof.withusdone.com/',
+    '자동차보험가입경력인정' => 'https://directjpmog.withusdone.com/',
+    '자동차보험비교추천' => 'https://directjpmoh.withusdone.com/',
+    '자동차보험신규' => 'https://directjpmoi.withusdone.com/',
+    '외국인자동차보험' => 'https://directjpmoj.withusdone.com/',
+    '자동차보험카드할인' => 'https://directjpmok.withusdone.com/',
+    '탄만큼내는자동차보험' => 'https://directjpmol.withusdone.com/',
+    '온라인자동차보험' => 'https://directjpmom.withusdone.com/',
+    '자동차보험 26세' => 'https://directjpmon.withusdone.com/',
+    '자동차보험보장' => 'https://directjpmoo.withusdone.com/',
+    '인터넷자동차보험료비교견적사이트' => 'https://directjpmop.withusdone.com/',
+    '다이렉트자동차보험순위' => 'https://directjpmoq.withusdone.com/',
+    '자동차보험결제' => 'https://directjpmor.withusdone.com/',
+    '차보험비' => 'https://directjpmos.withusdone.com/',
+    '차보험비교' => 'https://directjpmot.withusdone.com/',
+    '차보험료조회' => 'https://directjpmou.withusdone.com/',
+    '자동차보험차량기준가액' => 'https://directjpmov.withusdone.com/',
+    '차량보험비교' => 'https://directjpmow.withusdone.com/',
+    '차량보험료조회' => 'https://directjpmox.withusdone.com/',
+    '차량보험가입' => 'https://directjpmoy.withusdone.com/',
+    '미성년자자동차보험' => 'https://directjpmoz.withusdone.com/',
+    '실시간자동차보험료비교견적사이트' => 'https://directkpmoa.withusdone.com/',
+    '자동차보험인터넷가입' => 'https://directkpmob.withusdone.com/',
+    '자동차보험등급확인' => 'https://directkpmoc.withusdone.com/',
+    '자동차보험가액' => 'https://directkpmod.withusdone.com/',
+    '누구나자동차보험' => 'https://directkpmoe.withusdone.com/',
+    '자차가입' => 'https://directkpmof.withusdone.com/',
+    '자동차보험설계' => 'https://directkpmog.withusdone.com/',
+    '탄만큼내는보험' => 'https://directkpmoh.withusdone.com/',
+    '자동차보험가입거절' => 'https://directkpmoi.withusdone.com/',
+    '경차자동차보험료' => 'https://directkpmoj.withusdone.com/',
+    '자동차보험서비스' => 'https://directkpmok.withusdone.com/',
+    '자동차보험가입방법' => 'https://directkpmol.withusdone.com/',
+    '자동차보험저렴' => 'https://directkpmom.withusdone.com/',
+    '자동차보험료싼곳' => 'https://directkpmon.withusdone.com/',
+    '차보험확인' => 'https://directkpmoo.withusdone.com/',
+    '차량보험료계산' => 'https://directkpmop.withusdone.com/',
+    '자동차책임보험가입방법' => 'https://directkpmoq.withusdone.com/',
+    '자동차보험사순위' => 'https://directkpmor.withusdone.com/',
+    '전기차자동차보험' => 'https://directkpmos.withusdone.com/',
+    '자동차보험점유율' => 'https://directkpmot.withusdone.com/',
+    '자동차보험가입내역조회' => 'https://directkpmou.withusdone.com/',
+    '자동차보험료카드' => 'https://directkpmov.withusdone.com/',
+    '자동차보험상담' => 'https://directkpmow.withusdone.com/',
+    '자동차보험료비교사이트' => 'https://directkpmox.withusdone.com/',
+    '자동차의무보험가입' => 'https://directkpmoy.withusdone.com/',
+    '차보험료비교' => 'https://directkpmoz.withusdone.com/',
+    '레이자동차보험' => 'https://directlpmoa.withusdone.com/',
+    '자동차보험료갱신' => 'https://directlpmob.withusdone.com/',
+    '아이오닉9보험료' => 'https://directlpmoc.withusdone.com/',
+    '첫차보험' => 'https://directlpmod.withusdone.com/',
+    '자동차보험가입혜택' => 'https://directlpmoe.withusdone.com/',
+    '자동차다이렉트보험비교견적' => 'https://directlpmof.withusdone.com/',
+    '이쿼녹스EV 보험료' => 'https://directlpmog.withusdone.com/',
+    '자동차보험당일가입' => 'https://directlpmoh.withusdone.com/',
+    '자동차다이렉트비교' => 'https://directlpmoi.withusdone.com/',
+    '자동차책임보험료' => 'https://directlpmoj.withusdone.com/',
+    '제네시스 GV90 보험료' => 'https://directlpmok.withusdone.com/',
+    '화물자동차보험' => 'https://directlpmol.withusdone.com/',
+    '콜로라도보험료' => 'https://directlpmom.withusdone.com/',
+    '1톤트럭보험료' => 'https://directlpmon.withusdone.com/',
+    '자동차보험싸게' => 'https://directlpmoo.withusdone.com/',
+    '자동차보험등록' => 'https://directlpmop.withusdone.com/',
+    '카이엔 보험료' => 'https://directlpmoq.withusdone.com/',
+    '40대자동차보험' => 'https://directlpmor.withusdone.com/',
+    '자동차보험알아보기' => 'https://directlpmos.withusdone.com/',
+    '자동차보험신규가입' => 'https://directlpmot.withusdone.com/',
+    '코란도 kr10 보험료' => 'https://directlpmou.withusdone.com/',
+    '자동차보험비교어플' => 'https://directlpmov.withusdone.com/',
+    '차량의무보험' => 'https://directlpmow.withusdone.com/',
+    '자동차보험예상' => 'https://directlpmox.withusdone.com/',
+    '다이렉트차보험' => 'https://directlpmoy.withusdone.com/',
+    '인터넷다이렉트보험' => 'https://directlpmoz.withusdone.com/',
+    '자동차보험만료' => 'https://directmpmoa.withusdone.com/',
+    '자동차보험가입시간' => 'https://directmpmob.withusdone.com/',
+    '자동차첫보험료' => 'https://directmpmoc.withusdone.com/',
+    '내차자동차보험' => 'https://directmpmod.withusdone.com/',
+    '자동차보험료카드결제' => 'https://directmpmoe.withusdone.com/',
+    '자동차필수보험' => 'https://directmpmof.withusdone.com/',
+    '자동차책임보험보상' => 'https://directmpmog.withusdone.com/',
+    '르노5보험료' => 'https://directmpmoh.withusdone.com/',
+    '캉구 보험료' => 'https://directmpmoi.withusdone.com/',
+    '자동차보험료저렴한곳' => 'https://directmpmoj.withusdone.com/',
+    '화물차자동차보험' => 'https://directmpmok.withusdone.com/',
+    '자동차보험료예상' => 'https://directmpmol.withusdone.com/',
+    '자동차다이렉트보험견적' => 'https://directmpmom.withusdone.com/',
+    '다이렉트보험비교견적' => 'https://directmpmon.withusdone.com/',
+    '다이렉트자동차보험가입' => 'https://directmpmoo.withusdone.com/',
+    '자동차다이렉트보험추천' => 'https://directmpmop.withusdone.com/',
+    '자동차보험다이렉트비교사이트' => 'https://directmpmoq.withusdone.com/',
+    '자동차보험가입이력' => 'https://directmpmor.withusdone.com/',
+    '개인자동차보험' => 'https://directmpmos.withusdone.com/',
+    '자동차보험누구나운전' => 'https://directmpmot.withusdone.com/',
+    '자동차보험금조회' => 'https://directmpmou.withusdone.com/',
+    '자동차종합보험비교' => 'https://directmpmov.withusdone.com/',
+    '차량보험료비교' => 'https://directmpmow.withusdone.com/',
+    '19살자동차보험' => 'https://directmpmox.withusdone.com/',
+    '만30세자동차보험' => 'https://directmpmoy.withusdone.com/',
+    '법인차량보험료' => 'https://directmpmoz.withusdone.com/',
+    '법인차자동차보험' => 'https://directnpmoa.withusdone.com/',
+    '캠핑카자동차보험' => 'https://directnpmob.withusdone.com/',
+    '만28세자동차보험료' => 'https://directnpmoc.withusdone.com/',
+    '자동차보험산출' => 'https://directnpmod.withusdone.com/',
+    '법인차량자동차보험' => 'https://directnpmoe.withusdone.com/',
+    'K8보험료' => 'https://directnpmof.withusdone.com/',
+    '자동차보험검색' => 'https://directnpmog.withusdone.com/',
+    '트위지보험' => 'https://directnpmoh.withusdone.com/',
+    '자동차다이렉트보험계산' => 'https://directnpmoi.withusdone.com/',
+    '자동차보험다이렉트차이' => 'https://directnpmoj.withusdone.com/',
+    '차보험다이렉트' => 'https://directnpmok.withusdone.com/',
+    '다이렉트보험추천' => 'https://directnpmol.withusdone.com/',
+    '23살차보험료' => 'https://directnpmom.withusdone.com/',
+    '차량보험비' => 'https://directnpmon.withusdone.com/',
+    '자동차보험어플' => 'https://directnpmoo.withusdone.com/',
+    '자동차보험전화가입' => 'https://directnpmop.withusdone.com/',
+    '벤츠S클래스보험료' => 'https://directnpmoq.withusdone.com/',
+    '자동차보험종합보험' => 'https://directnpmor.withusdone.com/',
+    '자동차보험사종류' => 'https://directnpmos.withusdone.com/',
+    '자동차보험통합' => 'https://directnpmot.withusdone.com/',
+    '첫차자동차보험료' => 'https://directnpmou.withusdone.com/',
+    '업무용차량보험' => 'https://directnpmov.withusdone.com/',
+    '22살차보험료' => 'https://directnpmow.withusdone.com/',
+    '다이렉트자동차보험싼곳' => 'https://directnpmox.withusdone.com/',
+    '다이렉트자동차보험조회' => 'https://directnpmoy.withusdone.com/',
+    '차종별보험료' => 'https://directnpmoz.withusdone.com/',
+    '다이렉트자동차보험견적비교사이트' => 'https://directopmoa.withusdone.com/',
+    '저렴한다이렉트자동차보험' => 'https://directopmob.withusdone.com/',
+    '자동차보험비교혜택' => 'https://directopmoc.withusdone.com/',
+    '자동차보험료분할납부' => 'https://directopmod.withusdone.com/',
+    '1톤트럭보험' => 'https://directopmoe.withusdone.com/',
+    '자동차의무보험가격' => 'https://directopmof.withusdone.com/',
+    '자차보험조회' => 'https://directopmog.withusdone.com/',
+    '자동차보험드는법' => 'https://directopmoh.withusdone.com/',
+    '자차보험가격' => 'https://directopmoi.withusdone.com/',
+    '자동차보험할인특약' => 'https://directopmoj.withusdone.com/',
+    '자동차보험들기' => 'https://directopmok.withusdone.com/',
+    '자동차보험전연령' => 'https://directopmol.withusdone.com/',
+    '자동차보험12개월' => 'https://directopmom.withusdone.com/',
+    '무쏘 ev 보험료' => 'https://directopmon.withusdone.com/',
+    '인터넷자동차보험비교견적사이트' => 'https://directopmoo.withusdone.com/',
+    '자동차보험견적사이트' => 'https://directopmop.withusdone.com/',
+    '자동차보험비교사이트순위' => 'https://directopmoq.withusdone.com/',
+    '자동차보험료다이렉트' => 'https://directopmor.withusdone.com/',
+    '차량보험견적' => 'https://directopmos.withusdone.com/',
+    '차보험견적' => 'https://directopmot.withusdone.com/',
+    '자동차보험비교하기' => 'https://directopmou.withusdone.com/',
+    '자동차보험가입하기' => 'https://directopmov.withusdone.com/',
+    'BMW자동차보험' => 'https://directopmow.withusdone.com/',
+    '자동차다이렉트보험순위' => 'https://directopmox.withusdone.com/',
+    '차량다이렉트보험' => 'https://directopmoy.withusdone.com/',
+    '자동차보험다이렉트가입' => 'https://directopmoz.withusdone.com/',
+    '자동차보험료산정' => 'https://directppmoa.withusdone.com/',
+    '자동차보험어디' => 'https://directppmob.withusdone.com/',
+    '자동차보험가입비교' => 'https://directppmoc.withusdone.com/',
+    '자동차비교보험' => 'https://directppmod.withusdone.com/',
+    '자동차보험다이렉트비교견적' => 'https://directppmoe.withusdone.com/',
+    '자동차다이렉트보험종류' => 'https://directppmof.withusdone.com/',
+    '다이렉트자동차보험종류' => 'https://directppmog.withusdone.com/',
+    '차보험료견적' => 'https://directppmoh.withusdone.com/',
+    '다이렉트보험자동차' => 'https://directppmoi.withusdone.com/',
+    '다이렉트자동차보험할인' => 'https://directppmoj.withusdone.com/',
+    '다이렉트자동차보험계산' => 'https://directppmok.withusdone.com/',
+    '다이렉트자동차보험혜택' => 'https://directppmol.withusdone.com/',
+    '사업자자동차보험' => 'https://directppmom.withusdone.com/',
+    '차보험비교견적' => 'https://directppmon.withusdone.com/',
+    '자동차다이렉트보험사' => 'https://directppmoo.withusdone.com/',
+    '자동차보험비교조회' => 'https://directppmop.withusdone.com/',
+    '차보험계산기' => 'https://directppmoq.withusdone.com/',
+    '자동차다이렉트보험비교사이트' => 'https://directppmor.withusdone.com/',
+    '다이렉트자동차보험저렴' => 'https://directppmos.withusdone.com/',
+    '자동차보험료월납' => 'https://directppmot.withusdone.com/',
+    '자동차신규보험' => 'https://directppmou.withusdone.com/',
+    '인터넷자동차보험비교사이트' => 'https://directppmov.withusdone.com/',
+    '온라인자동차보험비교견적' => 'https://directppmow.withusdone.com/',
+    '인터넷자동차보험료비교' => 'https://directppmox.withusdone.com/',
+    '다이렉트보험료비교견적' => 'https://directppmoy.withusdone.com/',
+    '자동차보험다이렉트법인' => 'https://directppmoz.withusdone.com/',
+    '자동차보험견적내기' => 'https://directpqmoa.withusdone.com/',
+    '자동차다이렉트보험가격비교' => 'https://directpqmob.withusdone.com/',
+    '자차보험가입' => 'http://directcarpromota.cafe24.com/',
+    '자동차종합보험가격' => 'http://directcarpromotb.cafe24.com/',
+    '자동차보험회사순위' => 'http://directcarpromotg.cafe24.com/',
+    '첫자동차보험료' => 'http://directcarpromoti.cafe24.com/',
+    '차 보험료' => 'http://directcarpromotk.cafe24.com/',
+    '자동차보험가격비교' => 'http://directcarpromotl.cafe24.com/',
+    '인터넷자동차보험' => 'http://directcarpromoto.cafe24.com/',
+    '다이렉트자동차보험비교견적' => 'http://m.directcarpromotq.cafe24.com/',
+    '자동차보험가족한정범위' => 'https://directcarpromots.cafe24.com/',
+    '자동차책임보험가격' => 'https://directcarpromotv.cafe24.com/',
+    '자동차보험 다이렉트 비교' => 'https://directcarpromotw.cafe24.com/',
+    '자동차보험료계산' => 'http://bohumpromotiona.cafe24.com/',
+    '자동차보험할증기준' => 'http://bohumpromotionb.cafe24.com/',
+    '자동차보험료1년' => 'http://bohumpromotionc.cafe24.com/',
+    '자동차보험비교견적' => 'http://bohumpromotiond.cafe24.com/',
+    '20대자동차보험료' => 'http://bohumpromotione.cafe24.com/',
+    '자동차보험견적' => 'http://bohumpromotionf.cafe24.com/',
+    '자동차보험추천' => 'http://bohumpromotiong.cafe24.com/',
+    '다이렉트자동차보험료' => 'http://bohumpromotioni.cafe24.com/',
+    '자동차보험 만26세' => 'http://bohumpromotionk.cafe24.com/',
+    '자동차보험 신규' => 'https://bohumpromotionl.cafe24.com/',
+    '자동차보험비교견적사이트' => 'https://bohumpromotionm.cafe24.com/',
+    '자동차 책임보험 가입' => 'http://bohumpromotionn.cafe24.com/',
+    '전기차보험료' => 'http://bohumpromotiono.cafe24.com/',
+    '자동차보험순위' => 'https://bohumpromotionp.cafe24.com/',
+    '20살자동차보험료' => 'https://bohumpromotionq.cafe24.com/',
+    '자동차보험 경력인정' => 'https://bohumpromotionr.cafe24.com/',
+    '자동차보험조회' => 'https://bohumpromotions.cafe24.com/',
+    '자동차보험종류' => 'https://bohumpromotiont.cafe24.com/',
+];
+
+// 설명 문구 템플릿
+$descriptions = [
+    '만26세 자동차보험' => '20대 중반, 보험료의 터닝 포인트를 맞이하다! 🚗✨ 나이 할증이 풀리는 시점, 폭풍 할인 정보를 놓치지 마세요.',
+    '운전병보험할인' => '군복무 운전 경력, 현명하게 보험료로 돌려받는 비결! 🎖️💰 숨겨진 할인 혜택을 찾아내 드립니다.',
+    '만21세 자동차보험' => '성인이 되어 첫 차를 위한 현실적인 보험료! 💡 이 시기 가장 부담 없는 견적을 바로 확인하세요.',
+    '만19세 자동차보험' => '운전의 시작, 보험료 폭탄은 피하고 싶다면? 🛡️ 최소 비용으로 최대 보장을 설계하는 핵심 가이드.',
+    '20대자동차보험' => '청춘의 드라이빙, 합리적인 20대 맞춤 보험료 전략! 📈 복잡한 보험료, 가장 쉽게 비교하는 방법.',
+    '나이별자동차보험료' => '내 나이에 딱 맞는 최저가 보험료는 얼마? 🔎 연령대별 보험료 시세를 한눈에 파악하세요.',
+    '만24세자동차보험' => '만 24세 드라이버를 위한 특가 찬스! 🎁 알쏭달쏭한 보험료 구조를 명쾌하게 분석해 드립니다.',
+    '만20세자동차보험' => '스무 살 운전자의 고민, 비싼 보험료를 이기는 스마트한 설계! 🧠 절약 비법이 여기에 있습니다.',
+    '신차보험가입' => '따끈따끈한 새 차, 가입 시점부터 남들과 다른 특별한 혜택! 💎 신차 오너를 위한 완벽 보험 가이드.',
+    '만25세 자동차보험' => '진정한 성인의 문턱, 만 25세가 누릴 수 있는 보험료 최적화! 🎯 불필요한 지출을 싹 줄이세요.',
+    '만23세 자동차보험' => '경력이 쌓일수록 내려가는 보험료, 만 23세의 기회를 포착하라! 📉 실시간 견적을 비교해 보세요.',
+    '20대차보험료' => '20대 운전자라면 필독! 내 차종, 내 조건에 맞는 보험료 리스트 공개! 📜 지금 바로 클릭!',
+    '신차자동차보험료' => '신차 가격만큼 중요한 신차 보험료, 거품 없는 견적을 만나는 곳! ⚖️ 현명한 소비의 첫걸음.',
+    '자동차보험연령' => '운전자 연령 기준에 따른 보험료 변동의 비밀! 🗝️ 내 연령 기준이 언제 달라지는지 확인하세요.',
+    '만22세자동차보험' => '만 22세 맞춤형 보험 설계, 꼼꼼하게 따져보고 가장 저렴하게! 💯 후회 없는 선택을 도와드립니다.',
+    '만18세자동차보험' => '운전 면허 취득 직후, 가장 비싼 보험료를 가장 싸게 가입하는 노하우! 💡 특별 할인 정보를 확인하세요.',
+    '20살차보험료' => '인생 첫 차, 20살의 부담을 덜어줄 최적의 보험료 비교! 🤝 경제적인 운전을 시작하세요.',
+    '30대자동차보험료' => '안정적인 30대, 보험료는 더 낮게! 🏆 경력 인정과 다양한 할인 특약을 총정리했습니다.',
+    '21살자동차보험' => '갓 성인이 된 21살 운전자를 위한 특별 보험료 견적! 🌟 젊음은 특권, 할인은 필수!',
+    '20살자동차보험' => '스무고개 없는 20살 자동차 보험료, 투명하고 확실하게 비교하세요! 📊 모든 정보를 오픈합니다.',
+    '22살자동차보험' => '만 22세, 더 이상 비싸게 가입하지 마세요! 💸 실속파 드라이버를 위한 절약형 보험 찾기.',
+    '22살자동차보험료' => '22살 운전자의 평균 보험료는 얼마? 🎯 나의 위치를 파악하고 최적의 견적을 받아보세요.',
+    '24살자동차보험' => '24세, 만 25세 할인 폭풍 전야! 🌪️ 미리 견적 비교로 최고의 보험료를 쟁취하세요.',
+    '40대자동차보험료' => '베테랑 드라이버 40대, 안정된 운전만큼 저렴한 보험료! 💰 무사고 경력의 가치를 극대화하세요.',
+    '23살자동차보험' => '만 23세, 젊음과 경력의 교차점! 🚀 합리적인 보험료를 찾을 수 있는 절호의 기회.',
+    '만28세자동차보험' => '만 28세 프리미엄, 더욱 낮아진 보험료를 경험하세요! 💼 안정적인 운전 생활을 위한 필수 체크.',
+    '20대초반자동차보험' => '20대 초반 드라이버를 위한 최적의 가성비 보험 플랜! 📉 예산에 딱 맞는 설계를 제안합니다.',
+    '20대초반자동차보험료' => '비교만으로 수십만 원 절약! 💸 20대 초반의 필수 보험료 비교 사이트.',
+    '만30세자동차보험' => '30대 초입, 가장 합리적인 만 30세 기준 보험료를 찾아라! 🥇 비교는 곧 절약입니다.',
+    '만28세자동차보험료' => '만 28세라면 무조건 유리한 보험료! 🎁 나만을 위한 최저가 견적을 지금 바로 확인.',
+    '자동차보험료1년' => '1년 단위 보험료, 가장 저렴한 회사는 어디? 📊 숨겨진 1년 보험료의 비밀을 파헤칩니다.',
+    '수입차보험료' => '드림카 수입차, 보험료는 꿈이 아닌 현실로! 🛡️ 고가 차량 맞춤형 최저가 보험료를 찾으세요.',
+    '차량보험' => '내 차를 지키는 가장 현명한 방법, 완벽한 차량 보험 가이드! 📝 필수 담보부터 특약까지.',
+    '자동차보험 경력인정' => '군대, 회사 운전 경력, 놓치지 마세요! 💡 보험료 할인으로 이어지는 경력 인정 노하우.',
+    '자동차누구나보험' => '누구나 운전 가능! 하지만 보험료는? 🧐 누구나 운전 특약의 장단점과 최저가를 비교합니다.',
+    '자동차보험료계산기' => '단 1분 만에 내 보험료 계산 완료! ⏱️ 복잡한 과정 없이 실시간으로 결과를 확인하세요.',
+    '첫차보험료' => '설레는 첫차 구매, 보험료만큼은 걱정 없이! 🌟 신규 운전자에게 가장 유리한 견적을 안내합니다.',
+    '차보험계산' => '복잡한 차 보험, 이젠 쉽게 계산하세요! 🧮 필요한 정보만 입력하면 끝.',
+    '차량보험료' => '내 차량의 가치에 맞는 최적의 보험료! 📈 다양한 회사별 차량 보험료를 한 번에 비교.',
+    '자동차보험자녀할인' => '자녀가 있다면 놓칠 수 없는 특별 할인! 👨‍👩‍👧‍👦 가족을 위한 현명한 보험료 절약법.',
+    '자차보험료' => '내 차를 위한 선택, 자차 보험료의 비밀! 🔑 가입 기준과 보험료를 낮추는 팁을 공개합니다.',
+    '중고차보험료' => '합리적인 중고차 구매, 보험료는 더 합리적으로! 🛍️ 중고차 맞춤 최저가 보험료를 비교하세요.',
+    '자동차보험 만기' => '보험 만기, 갱신은 언제나 현명하게! 🔄 만기 전 최적의 조건으로 재가입하는 전략.',
+    '다이렉트자동차보험추천' => '가장 많이 선택한 다이렉트 보험은? 🥇 고객 만족도 높은 보험사 순위를 확인하세요.',
+    '자동차보험비' => '자동차 보험에 들어가는 총 비용, 아는 만큼 아낀다! 💰 숨겨진 비용까지 투명하게 공개.',
+    '자동차보험료 할부' => '보험료 부담, 이젠 할부로 나누세요! 💳 무이자 할부 혜택을 제공하는 보험사를 찾아 드립니다.',
+    '자동차보험책임보험' => '의무 가입! 책임 보험, 가장 저렴한 가격을 찾아서! 📉 최소 비용으로 법적 의무를 이행하세요.',
+    '자동차보험가입방법' => '초보자도 쉽게! 📝 가장 빠르고 간단하게 자동차 보험에 가입하는 모든 방법.',
+    '실시간자동차보험견적' => '기다릴 필요 없이 바로 확인! ⏳ 실시간으로 변하는 내 보험료 견적을 받아보세요.',
+    '자동차보험 만나이' => '한국 나이 vs. 만나이, 보험료 계산의 기준은? 🤔 정확한 연령 기준을 알고 보험료를 줄이세요.',
+    '아반떼 보험료' => '국민 세단 아반떼, 가장 저렴한 보험료는? 🚗 차종별 맞춤 견적 비교 서비스.',
+    '카니발보험료' => '패밀리카의 대명사 카니발, 가족 모두에게 유리한 보험료 설계! 👨‍👩‍👧‍👦.',
+    '경차자동차보험' => '경차의 장점, 보험료에서도 빛을 발하다! 🌟 가장 경제적인 경차 보험료를 확인하세요.',
+    '그랜저보험료' => '준대형 세단의 품격, 그랜저 오너를 위한 특별 보험료 견적! 💼 최상의 보장을 최저가로.',
+    '중고차자동차보험' => '중고차 구입 후 필수! 📝 번거로운 보험 가입, 한 번에 끝내는 완벽 가이드.',
+    '제네시스보험료' => '럭셔리 세단 제네시스, 프리미엄 서비스와 합리적인 보험료의 만남! 👑.',
+    '중고차책임보험' => '중고차 등록 필수! 🛡️ 가장 저렴한 중고차 책임 보험료 견적을 비교하세요.',
+    '모닝보험료' => '모닝 오너에게 가장 유리한 보험료 조건! ☀️ 경차 할인 혜택을 극대화하세요.',
+    'K5보험료' => '인기 세단 K5, 젊은 감각에 맞는 가성비 높은 보험료 설계! 📊.',
+    '테슬라보험' => '첨단 전기차 테슬라, 일반 차와 다른 보험료 기준은? 🔋 테슬라 오너 필수 보험 가이드.',
+    '모닝자동차보험' => '모닝 보험, 비교하면 보험료가 달라진다! 📉 최적의 보험사 선택 노하우.',
+    '모닝자동차보험료' => '모닝 운전자라면 지금 바로 확인! 💰 가장 저렴한 모닝 보험료를 실시간으로.',
+    '테슬라보험료' => '테슬라 모델별, 옵션별 맞춤 보험료 견적! 💡 예상 보험료를 미리 확인하세요.',
+    '스파크보험료' => '스파크 드라이버를 위한 최고의 가성비 보험료! 💸 경차 보험료 할인 꿀팁 공개.',
+    '트위지보험료' => '초소형 전기차 트위지, 독특한 차만큼 저렴한 보험료는? 🛵 맞춤 견적 확인.',
+    '미니쿠퍼보험료' => '개성 넘치는 미니쿠퍼, 스타일은 살리고 보험료는 낮추는 방법! 🔑.',
+    'G80보험료' => '제네시스 G80, 럭셔리 세단에 걸맞은 합리적인 보험료를 설계하세요! 🌟.',
+    '푸조보험료' => '유럽 감성 푸조, 수입차 보험료 부담을 줄이는 스마트한 방법! 🇫🇷.',
+    '캠핑카자동차보험' => '자유를 위한 캠핑카, 안전을 위한 보험 설계! 🏕️ 캠핑카 특화 보험 상품을 찾아 드립니다.',
+    '테슬라자동차보험' => '테슬라의 첨단 기술, 보험료 절약의 기회로! 🛡️ 전기차 보험료 할인 혜택 총정리.',
+    '캠핑카보험료' => '캠핑카 크기와 종류에 따른 정확한 보험료 견적! 📊 예상 비용을 미리 계산해 보세요.',
+    '코나보험료' => '인기 소형 SUV 코나, 경제적인 보험료로 부담 없이 운전하세요! 🚗.',
+    'K3보험료' => '실용적인 K3, 운전자에게 가장 유리한 보험료 비교! 💰.',
+    '코란도스포츠보험료' => '레저와 일상을 모두 잡는 코란도 스포츠, 화물차 기준 보험료 견적! 🚛.',
+    'BMW5시리즈보험료' => 'BMW 5시리즈 오너를 위한 프리미엄 보험료 맞춤 견적! 🔑.',
+    '카니발11인승보험료' => '11인승 카니발, 승합차와 승용차 사이의 보험료 차이는? 🚐 정확한 비교.',
+    '티구안보험료' => '폭스바겐 티구안, 수입 SUV 보험료를 합리적으로! 🇩🇪.',
+    '스포츠카보험료' => '열정을 위한 스포츠카, 보험료는 냉정하게 비교하세요! 🔥 고성능 차 맞춤 보험.',
+    '스파크자동차보험' => '스파크를 위한 가장 저렴한 보험! 💸 경차 혜택을 놓치지 마세요.',
+    'K9보험료' => '기아의 플래그십 K9, 최고의 보장을 위한 최적의 보험료! 👑.',
+    '테슬라모델3보험료' => '가장 대중적인 전기차, 모델 3의 보험료 견적! 🔋 전기차 할인 혜택 총정리.',
+    '다마스보험료' => '경형 상용차 다마스, 사업자에게 유리한 보험료를 찾으세요! 🚚.',
+    '팰리세이드보험' => '대형 SUV 팰리세이드, 가족 모두를 위한 안전한 보험 설계! 🛡️.',
+    '카니발자동차보험' => '카니발 오너라면 필수! 🚐 다양한 보험사별 견적을 한눈에 비교.',
+    '스팅어보험료' => '고성능 세단 스팅어, 스피드를 위한 합리적인 보험료! 🚀.',
+    '아우디A3보험료' => '콤팩트 프리미엄 아우디 A3, 젊은 오너를 위한 보험료 견적! 🇩🇪.',
+    '트래버스보험료' => '쉐보레 트래버스, 대형 SUV의 든든한 보험료를 설계하세요! 🇺🇸.',
+    '픽업트럭보험료' => '레저용 픽업트럭, 화물차 기준으로 저렴하게 가입하는 방법! 🚜.',
+    '펠리세이드보험료' => '펠리세이드 오너 맞춤형! 💰 대형 SUV 보험료를 절약하는 노하우.',
+    '벤츠E클래스보험료' => '메르세데스-벤츠 E클래스, 품격 있는 운전을 위한 보험료 견적! 🇩🇪.',
+    'EV6보험료' => '기아 전기차 EV6, 미래를 위한 보험료는 얼마? 🔋 전기차 특화 할인 확인.',
+    'BMW보험' => 'BMW 오너를 위한 맞춤 보험 상품! 🔑 프리미엄 차량의 보험료를 합리적으로.',
+    '폭스바겐 제타 보험료' => '수입차 엔트리 세단 제타, 가성비 좋은 보험료를 찾으세요! 🇩🇪.',
+    '렉서스ES300H보험료' => '하이브리드 세단 렉서스 ES300H, 연비만큼 착한 보험료 견적! 🇯🇵.',
+    'X3보험료' => 'BMW X3, 프리미엄 SUV 보험료를 비교하고 최저가로 가입하세요! 🛡️.',
+    'QM6보험료' => '르노 QM6, 안정적인 SUV 오너를 위한 합리적인 보험료! 🇫🇷.',
+    '레이자동차보험료' => '박스카 레이, 경차 혜택으로 보험료를 더욱 낮추세요! 💡.',
+    '토레스보험료' => '쌍용 토레스, 새로운 SUV의 보험료 기준은? 🌲.',
+    'BMW3시리즈보험료' => 'BMW 3시리즈, 다이나믹한 드라이빙을 위한 합리적인 보험료! 🇩🇪.',
+    '캐스퍼보험료' => '경형 SUV 캐스퍼, 경차 혜택을 극대화한 보험료 견적! 🌟.',
+    '파나메라보험료' => '포르쉐 파나메라, 럭셔리 스포츠 세단의 특별 보험료! 👑.',
+    '티볼리보험료' => '쌍용 티볼리, 개성 넘치는 소형 SUV 보험료를 비교하세요! 🚗.',
+    '쏘나타보험료' => '대한민국 대표 중형 세단 쏘나타, 가장 대중적인 보험료 기준! 🇰🇷.',
+    '자동차보험특약' => '아는 만큼 할인! 💡 숨겨진 자동차 보험 특약과 할인 혜택을 총정리했습니다.',
+    '자동차보험비교견적' => '단 1분이면 끝! ⏱️ 수많은 보험사의 견적을 한눈에 비교하고 최저가를 찾으세요.',
+    '자동차보험부부한정' => '부부만 운전한다면 보험료 대폭 할인! 💑 부부 한정 특약의 장점을 확인하세요.',
+    '자동차보험블랙박스할인' => '블랙박스 설치만으로 보험료 할인! 📹 놓치지 말아야 할 필수 할인 특약.',
+    '중고차보험' => '안전한 중고차 거래, 완벽한 보험 가입으로 마무리! 🤝.',
+    '자동차보험료비교' => '나에게 가장 저렴한 보험료는 어디? 📊 실시간 보험료 비교로 비용을 절감하세요.',
+    '레이보험료' => '경차 레이 오너를 위한 최고의 보험료 조건! 💰.',
+    '중고차보험가입' => '중고차 보험 가입 절차, 복잡하지 않아요! 📝 쉽고 빠르게 가입하는 방법.',
+    '스포티지보험료' => '인기 SUV 스포티지, 합리적인 오너를 위한 보험료 견적! 🌟.',
+    'K7보험료' => '준대형 세단 K7, 고급차량 맞춤 보험료를 찾아 드립니다! 💼.',
+    '포르쉐보험료' => '하이엔드 스포츠카 포르쉐, 특별한 차량을 위한 최적의 보험료! 🏎️.',
+    '제네시스G80보험료' => 'G80 오너 맞춤형! 💰 럭셔리 세단 보험료를 가장 합리적으로.',
+    'BMW보험료' => 'BMW 모델별, 연식별 맞춤 보험료 견적! 🇩🇪 프리미엄 할인 정보를 확인하세요.',
+    '벤츠보험료' => '벤츠 전 모델 대상, 가장 유리한 보험료 비교! 👑.',
+    '싼타페보험료' => '국민 SUV 싼타페, 패밀리카에 맞는 든든한 보험료 설계! 👨‍👩‍👧‍👦.',
+    '투싼보험료' => '현대 투싼, 실용적인 SUV 오너를 위한 최적의 보험료! 🚗.',
+    'QM3보험료' => '르노 QM3, 소형 SUV 보험료의 가성비를 높여라! 🇫🇷.',
+    '카마로보험료' => '아메리칸 머슬 카 카마로, 파워풀한 차에 걸맞은 보험료는? 🇺🇸.',
+    'G70보험료' => '제네시스 G70, 스포티한 세단 오너를 위한 보험료! 🚀.',
+    '아우디A6보험료' => '비즈니스 세단 아우디 A6, 품격에 맞는 합리적인 보험료! 🇩🇪.',
+    '제네시스G70보험료' => 'G70 운전자라면 주목! 💡 최저가 보험료를 찾아 드립니다.',
+    'X6보험료' => 'BMW X6, 쿠페형 SUV의 독특한 보험료 기준! 🛡️.',
+    '쏘렌토보험료' => '기아 쏘렌토, 중형 SUV의 보험료를 가장 저렴하게! 🇰🇷.',
+    '카니발9인승보험료' => '9인승 카니발, 승합차 보험료의 비밀! 🚐.',
+    '520D보험료' => 'BMW 520D, 인기 디젤 세단의 보험료 견적! 💰.',
+    '넥쏘보험료' => '수소차 넥쏘, 미래형 자동차의 보험료를 확인하세요! 💧.',
+    '스파크자동차보험료' => '스파크 보험료, 경차 우대 혜택을 완벽하게 적용! 💸.',
+    '캐스퍼자동차보험' => '캐스퍼 맞춤형 보험 설계! 🌟 가장 경제적인 보험료를 찾으세요.',
+    '머스탱보험료' => '포드 머스탱, 아메리칸 머슬카의 박진감 넘치는 보험료 견적! 🇺🇸.',
+    '스포티지하이브리드보험료' => '스포티지 하이브리드, 친환경차 할인 혜택 총정리! 🌿.',
+    '제네시스GV80보험료' => 'GV80 오너를 위한 프리미엄 보험료 설계! 👑.',
+    'K8 하이브리드 보험료' => 'K8 하이브리드, 친환경차와 대형 세단의 조합! 💡.',
+    '하이브리드보험료' => '친환경차 오너라면 필수! 🌿 하이브리드 차량 보험료 할인 혜택.',
+    '아이오닉6보험료' => '아이오닉 6, 미래형 전기차 보험료 견적! 🔋.',
+    'GV70보험료' => '제네시스 GV70, 젊은 감각의 럭셔리 SUV 보험료! 🌟.',
+    '셀토스보험료' => '기아 셀토스, 소형 SUV의 실속 있는 보험료! 🚗.',
+    'Z4보험료' => 'BMW Z4, 오픈 에어링의 자유, 보험료는 부담 없이! 🇩🇪.',
+    'GV80보험료' => '제네시스 GV80, 럭셔리 SUV의 최적 보험료를 찾아 드립니다! 🛡️.',
+    '벨로스터 N 보험료' => '고성능 해치백 벨로스터 N, 스포티한 드라이빙 맞춤 보험! 🚀.',
+    'X5보험료' => 'BMW X5, 대형 럭셔리 SUV의 보험료 견적! 🔑.',
+    '콜로라도보험료' => '쉐보레 콜로라도, 정통 픽업트럭의 보험료를 비교하세요! 🇺🇸.',
+    '렉서스보험료' => '렉서스 전 모델, 수입차 보험료를 합리적으로! 🇯🇵.',
+    '화물차보험료' => '사업용/비사업용 화물차, 가장 저렴한 보험료를 찾으세요! 🚛.',
+    '렉스턴스포츠 칸 보험료' => '렉스턴 스포츠 칸, 픽업트럭 특화 보험료 견적! 🌲.',
+    '쏘렌토하이브리드보험료' => '쏘렌토 하이브리드, 친환경차 할인과 패밀리카 혜택 모두 누리세요! 🌿.',
+    '벤츠자동차보험' => '벤츠 전 모델 오너를 위한 맞춤형 보험 서비스! 🇩🇪.',
+    '아이오닉5보험료' => '아이오닉 5, 전기차 보험료의 기준을 제시하다! 🔋.',
+    '새차보험' => '출고 직후, 가장 스마트하게 새 차 보험에 가입하는 방법! 🌟.',
+    '자동차보험료비교견적사이트' => '수많은 보험사, 단 한 번의 클릭으로 비교 견적 완료! 🥇.',
+    '자동차보험비교' => 'A사부터 Z사까지, 모든 자동차 보험을 비교하고 선택하세요! 📊.',
+    '자동차보험료비교견적' => '보험료 절약의 시작, 정확하고 빠른 비교 견적! 💰.',
+    '자동차다이렉트보험' => '복잡함은 줄이고, 보험료는 낮춘 다이렉트 보험의 모든 것! 💡.',
+    '자동차보험다이렉트' => '전화 없이 인터넷으로 간편하게! 🖥️ 다이렉트 보험 가입 가이드.',
+    '자동차 다이렉트 비교 견적 사이트 추천' => '믿을 수 있는 다이렉트 보험 비교 사이트, 전문가 추천 리스트! 🏆.',
+    '자동차보험료계산' => '내 조건에 맞는 보험료, 계산부터 가입까지 원스톱 서비스! 🧮.',
+    '다이렉트자동차보험비교' => '중개인 없이, 직접 비교하여 최대 할인 혜택을 누리세요! 💸.',
+    '자동차보험할증기준' => '사고 발생 시 보험료 할증 기준이 궁금하다면? 🤔 투명한 정보 제공.',
+    '자동차책임보험' => '법적 의무 사항, 책임 보험료 최저가로 가입하세요! 🛡️.',
+    '자동차보험료1년' => '1년치 보험료, 지금 바로 실시간으로 확인하고 비교! 📈.',
+    '자동차보험조회' => '내 보험 가입 내역, 계약 정보 등 모든 것을 한 번에 조회! 🔎.',
+    '자동차보험할증' => '할증 요인을 미리 파악하고 보험료를 관리하는 노하우! 🧠.',
+    '다이렉트자동차보험비교견적사이트' => '다이렉트 보험 비교의 끝판왕! 🥇 가장 저렴한 사이트를 경험하세요.',
+    '자동차보험비교견적' => '최대 10개 보험사 견적을 3분 안에 비교! ⏱️ 시간과 돈을 모두 아끼세요.',
+    '다이렉트자동차보험료비교견적사이트' => '다이렉트 보험료, 최저가 견적을 제공하는 최고의 플랫폼! 🌐.',
+    '자동차보험료비교' => '보험료 차이, 직접 눈으로 확인하세요! 📊 비교는 절약의 시작입니다.',
+    '자동차보험료계산기' => '복잡한 계산은 이제 그만! 🧮 가장 정확한 보험료 계산기를 이용하세요.',
+    '자동차보험동일증권' => '2대 이상의 차량을 한 번에 관리! 🤝 동일 증권 가입의 장점을 확인하세요.',
+    '다이렉트자동차보험비교견적' => '실시간으로 견적을 받아보고, 바로 가입하세요! 🚀.',
+    '자동차보험비교견적사이트' => '보험 전문가들이 추천하는 최고의 비교 견적 사이트! 🏆.',
+    '자동차종합보험' => '의무 보험 이상의 완벽한 보장! 🛡️ 종합 보험 가입의 중요성과 혜택.',
+    '내자동차보험조회' => '내가 가입한 보험, 지금 바로 조회하고 관리하세요! 🔎.',
+    '자동차보험종류' => '책임, 종합, 자차 등 복잡한 보험 종류를 한 번에 이해하세요! 💡.',
+    '자동차보험료할증' => '할증 피하는 방법! 🛡️ 사고 시 보험 처리의 현명한 전략.',
+    '자동차다이렉트보험비교' => '다이렉트 비교로 설계사 수수료를 절약하세요! 💸.',
+    '자동차보험다이렉트비교' => '보험사별 다이렉트 상품을 비교하고 나에게 맞는 것을 선택! 📊.',
+    '자동차보험확인' => '내 보험 계약의 모든 정보를 쉽고 빠르게 확인하세요! 📝.',
+    '차보험료' => '내 차의 정확한 보험료를 지금 바로 조회하세요! 💰.',
+    '20대자동차보험료' => '20대 드라이버, 가장 저렴한 보험료를 찾는 방법! 🌟.',
+    '자동차보험미가입과태료' => '의무 보험 미가입 시 과태료 폭탄 주의! 💣 미리 확인하고 대비하세요.',
+    '자동차보험견적' => '믿을 수 있는 보험사들의 정확한 견적을 받아보세요! 🤝.',
+    '차보험' => '내 차의 안전을 위한 필수 선택, 차 보험의 모든 것! 🛡️.',
+    '자동차보험갱신' => '만기 갱신, 절대 놓치지 마세요! 🔄 가장 좋은 조건으로 갱신하는 팁.',
+    '자동차보험추천' => '운전 경력, 차량 종류별 맞춤 보험 상품을 추천해 드립니다! 💡.',
+    '자동차보험나이' => '나이별 보험료 할인 기준, 정확히 알고 가입하세요! 📈.',
+    '자동차보험비교사이트' => '모든 보험사를 한 곳에서! 🌐 최고의 비교 사이트에서 견적을 시작하세요.',
+    '자동차보험이력조회' => '사고 이력, 보험금 청구 내역 등 이력을 투명하게 조회! 🔎.',
+    '자동차보험가족한정범위' => '가족 운전자 범위를 설정하여 보험료를 절약하세요! 👨‍👩‍👧‍👦.',
+    '자동차보험자기부담금' => '자차 처리 시 자기 부담금, 현명하게 설정하는 방법! 💰.',
+    '자동차보험경력인정' => '운전 경력을 인정받아 보험료를 대폭 할인하세요! 🎖️.',
+    '자동차의무보험' => '책임 보험은 필수! 🛡️ 가장 저렴하게 가입하는 방법을 안내합니다.',
+    '자동차보험가입' => '복잡한 가입 절차, 이젠 쉽고 빠르게! 🚀.',
+    '다이렉트자동차보험료' => '중개 수수료 없는 다이렉트 보험료, 지금 바로 확인하세요! 💸.',
+    '자동차상해특약' => '운전자 본인을 위한 완벽한 보장! 🩹 자동차 상해 특약의 중요성.',
+    '자동차보험료조회' => '내 보험료가 궁금하다면? 🔎 실시간으로 조회하고 비교하세요.',
+    '다이렉트자동차보험비교사이트' => '다이렉트 보험만 모아서 비교! 🥇 가장 현명한 선택을 도와 드립니다.',
+    '경차보험료' => '경차 오너의 특권! 💰 경차 할인 혜택을 놓치지 마세요.',
+    '자동차다이렉트보험비교견적사이트' => '다이렉트 견적 비교의 A to Z! 🌐 모든 정보를 한눈에.',
+    '자동차보험대물배상' => '사고 시 상대방 차량 피해 보상! 🛡️ 대물 배상 한도를 현명하게 설정하세요.',
+    '자동차보험자차' => '내 차 수리비 걱정 끝! 🚗 자차 보험 가입의 모든 것.',
+    '자차보험할증' => '자차 사고 시 할증 기준은? 🤔 현명한 보험 처리를 위한 정보.',
+    '자동차보험할부' => '보험료 분할 납부, 이젠 할부로 부담 없이! 💳.',
+    '외제차보험료' => '수입차 보험료, 비싼 이유와 저렴하게 가입하는 방법! 💡.',
+    '자동차보험료인상' => '보험료 인상 요인을 파악하고, 재가입 시 할인 받으세요! 📈.',
+    '외제차보험' => '고가 차량 맞춤형 보장 설계! 🛡️ 외제차 보험의 모든 것.',
+    '자동차보험승계' => '차량 명의 변경 시 보험 승계 절차는? 📝 쉽고 빠르게 처리하세요.',
+    '자동차보험할인할증등급' => '내 등급이 보험료를 결정한다! 📊 할인/할증 등급의 비밀.',
+    '자동차보험갱신기간' => '갱신 기간을 놓치면 불이익! ⏳ 정확한 갱신 기간을 확인하세요.',
+    '자동차보험등급' => '운전 경력에 따른 등급별 보험료 차이는? 🏆.',
+    '자동차보험만기' => '만기일이 다가온다면, 지금 바로 비교 견적을 시작하세요! 🔄.',
+    '자동차보험만기일' => '내 보험 만기일을 정확히 확인하고, 미리 갱신을 준비하세요! 🗓️.',
+    '자동차공동명의보험' => '공동 명의 차량, 보험 가입은 어떻게? 🤝 유리한 가입 방법을 안내합니다.',
+    '다이렉트자동차보험료비교견적' => '다이렉트 보험료, 가장 투명하고 빠르게 비교 견적! 📊.',
+    '자동차보험 신규' => '첫 보험 가입, 실수 없이 저렴하게! 🌟 신규 가입자 가이드.',
+    '다이렉트차보험비교' => '다이렉트 차 보험, 비교만 잘해도 수십만 원 절약! 💸.',
+    '자동차보험가입조회' => '내가 가입한 모든 보험 정보를 한 번에 조회! 🔎.',
+    '자동차보험계산' => '보험료를 직접 계산하고, 예상 비용을 확인하세요! 🧮.',
+    '자동차책임보험가입' => '의무 보험, 가장 빠르고 저렴하게 가입하는 방법! 🚀.',
+    '내차보험조회' => '내 차의 보험 정보, 지금 바로 간편하게 조회하세요! 🚗.',
+    '다이렉트자동차보험료비교' => '다이렉트 보험사별 요율을 비교하고 최저가를 찾으세요! 📉.',
+    '내가가입한자동차보험조회' => '잊고 있던 내 보험, 지금 바로 찾아드립니다! 🔎.',
+    '자동차책임보험가격' => '책임 보험의 평균 가격과 최저가 견적을 비교! 💰.',
+    '자차보험자기부담금' => '자차 사고 시 실제 내야 하는 돈, 정확히 알고 가입하세요! 💡.',
+    '자동차보험사' => '국내 모든 자동차 보험사 목록과 특징을 한눈에! 🌐.',
+    '자동차보험변경' => '차량 변경, 운전자 범위 변경 등 보험 변경은 어떻게? 📝.',
+    '자동차보험회사' => '신뢰도 높은 자동차 보험 회사 순위를 확인하세요! 🏆.',
+    '자동차누구나보험' => '운전자 연령/범위 제한 없는 누구나 보험, 보험료는? 💸.',
+    '자동차보험부모님' => '부모님 명의 차량, 자녀가 운전할 때 유리한 보험 설계! 👨‍👩‍👧‍👦.',
+    '자동차보험지정1인' => '가족 외 1인 지정, 보험료 절약의 현명한 방법! 🤝.',
+    '자동차보험자상' => '나와 가족의 상해를 보장하는 자상 특약의 중요성! 🩹.',
+    '전기차보험료비교' => '전기차 오너라면 필수! 🔋 전기차 특화 보험료를 비교하세요.',
+    '자동차상해보험' => '운전자 본인을 위한 가장 든든한 보장! 🛡️ 자동차 상해 보험 안내.',
+    '차량보험료' => '내 차량에 딱 맞는 보험료, 실시간으로 견적 확인! 📊.',
+    '자동차보험가입경력' => '운전 경력이 길수록 보험료는 절약된다! 📈 경력 인정 노하우.',
+    '자동차보험견적비교사이트' => '전문가들이 극찬하는 견적 비교 사이트! 🥇.',
+    '자동차보험순위' => '고객 만족도, 가격 경쟁력 기준 보험사 순위 공개! 🏆.',
+    '자동차가족보험' => '가족 모두를 위한 통합 보험 설계! 👨‍👩‍👧‍👦.',
+    '다이렉트자동차보험견적' => '다이렉트 견적, 가장 정확하고 빠르게 받아보세요! 🚀.',
+    '자동차보험인상' => '보험료 인상 요인 분석 및 절약 팁! 💡.',
+    '첫차보험료' => '첫 차 구매자, 보험료 부담을 덜어줄 최적의 견적! 🌟.',
+    '자동차보험사고할증' => '사고 시 보험료 할증 폭을 줄이는 현명한 방법! 🛡️.',
+    '자동차보험자동차상해' => '자손 vs 자상, 나에게 유리한 보장은? 🤔.',
+    '차량보험가입조회' => '내 차량 보험 가입 정보를 지금 바로 확인하세요! 🔎.',
+    '자동차보험싼곳' => '가장 저렴한 보험사를 찾는 비밀 노하우! 💸.',
+    '법인자동차보험' => '법인 차량, 가장 합리적인 보험료로 가입하는 방법! 💼.',
+    '자동차보험이전' => '차량 양도/양수 시 보험 이전 절차 안내! 📝.',
+    '차량보험조회' => '내 차의 보험 정보, 간편하게 조회하고 관리하세요! 🔎.',
+    '자동차보험저렴한곳' => '가격 경쟁력 최고! 🥇 최저가 보험사를 추천해 드립니다.',
+    '자동차보험인터넷' => '인터넷으로 가입하면 보험료가 더 싸진다! 🖥️.',
+    '자동차보험벌금' => '책임 보험 미가입 시 벌금, 미리 확인하고 대비하세요! 💣.',
+    '자동차보험할증조회' => '내 보험 할증 등급, 지금 바로 조회하세요! 📊.',
+    '자동차보험차량변경' => '차를 바꾸면 보험도 바꿔야죠! 🚗 변경 절차 안내.',
+    '자차보험뜻' => '자차 보험, 정확히 어떤 것을 보장하나요? 💡 개념 정리.',
+    '타는만큼내는보험' => '마일리지 특약, 주행 거리에 따라 보험료를 환급받으세요! 💰.',
+    '자동차보험가격' => '내 차의 정확한 보험료 가격을 실시간으로 확인하세요! 💸.',
+    '자동차자차보험' => '내 차를 위한 든든한 보험, 자차 가입의 모든 것! 🛡️.',
+    '자동차보험다이렉트견적' => '다이렉트 견적, 가장 빠르고 정확하게 받아보세요! 🚀.',
+    '자동차명의이전보험' => '명의 이전 시 보험 가입 절차, 복잡하지 않아요! 📝.',
+    '저렴한자동차보험' => '가성비 최고! 💰 저렴하면서 보장도 든든한 보험 상품 추천.',
+    '자동차보험안들면' => '보험 미가입 시 불이익, 절대 피해야 할 위험! 🚨.',
+    '자동차책임보험한도' => '책임 보험의 최소 보상 한도를 확인하세요! 💡.',
+    '자동차2대보험' => '차량 2대 소유 오너를 위한 통합 보험 설계! 🤝.',
+    '자동차 보험 인상률' => '매년 달라지는 보험 인상률, 미리 예측하고 대비하세요! 📈.',
+    '중고차보험' => '중고차에 최적화된 보험료를 찾아 드립니다! 🛍️.',
+    '신차보험가입' => '새 차 출고, 보험 가입은 가장 스마트하게! 🌟.',
+    '내자동차보험찾기' => '나도 모르게 가입된 보험, 지금 바로 찾아드립니다! 🔎.',
+    '자동차보험미가입' => '보험 미가입으로 인한 불이익을 미리 방지하세요! 🛡️.',
+    '자동차보험혜택' => '다양한 보험사별 할인 및 부가 혜택을 비교하세요! 🎁.',
+    '자차보험이란' => '자차 보험의 개념과 보장 범위를 쉽게 설명해 드립니다! 💡.',
+    '자동차보험누구나' => '운전자 지정 없이 누구나 운전 가능! 🚗 보험료 견적 확인.',
+    '자동차보험할인등급' => '할인 등급이 높을수록 보험료는 저렴해진다! 🏆.',
+    '자동차보험료할인' => '숨겨진 모든 할인 혜택을 찾아 보험료를 절약하세요! 💸.',
+    '자동차보험차량가액' => '내 차의 현재 가치를 정확히 파악하고 보험 가입! 📊.',
+    '자동차보험대물' => '대물 배상 한도, 높을수록 안전하다! 🛡️ 적정 한도를 설계하세요.',
+    '자동차보험일년' => '1년 단위 보험료, 가장 저렴한 플랜을 찾으세요! 💰.',
+    '자동차보험명의변경' => '명의 변경 시 필수 절차, 보험 변경을 안내합니다! 📝.',
+    '자동차보험책임보험' => '의무 보험, 최소 비용으로 최대 보장을! 🛡️.',
+    '자동차보험가입확인' => '내 보험 가입 여부를 지금 바로 확인하세요! 🔎.',
+    '자동차보험추가' => '운전자 추가, 특약 추가 등 보험 변경 가이드! 📝.',
+    '자동차보험질권설정' => '대출 차량, 질권 설정과 보험 가입의 관계는? 💡.',
+    '다이렉트자동차보험사이트' => '가장 쉽고 저렴하게 다이렉트 보험에 가입하는 사이트! 🌐.',
+    '자동차보험1인추가' => '보험료 부담 없이 1인 운전자 추가하는 방법! 🤝.',
+    '자동차보험1년가격' => '1년 보험료 총액, 비교하고 최저가를 찾으세요! 💰.',
+    '자동차보험비' => '자동차 보험에 들어가는 모든 비용을 투명하게 공개! 💸.',
+    '자동차보험등급조회' => '내 운전 경력 등급을 지금 바로 조회하세요! 🏆.',
+    '자동차보험주말가입' => '주말에도 보험 가입이 가능하다! 🗓️ 당일 가입 노하우.',
+    '세닉 E-Tech 보험료' => '르노 세닉 E-Tech, 신형 전기차의 보험료 견적! 🇫🇷.',
+    '자동차보험피보험자' => '피보험자 지정, 보험료를 절약하는 현명한 방법! 💡.',
+    '자동차보험가족추가' => '가족 운전자 추가, 보험료 할인 혜택을 누리세요! 👨‍👩‍👧‍👦.',
+    '자동차보험운전경력' => '운전 경력 인정, 보험료 절약의 핵심! 🎖️.',
+    '신차자동차보험' => '새 차에 가장 완벽한 보험 설계! 🌟.',
+    '자동차보험찾기' => '나에게 맞는 보험, 이제 헤매지 말고 찾으세요! 🔎.',
+    '차보험계산' => '내 차 보험료, 1분 안에 정확하게 계산! 🧮.',
+    '자동차보험무이자할부' => '보험료 납부, 부담 없이 무이자 할부로! 💳.',
+    '자동차보험할증등급' => '할증 등급 관리로 보험료를 절약하세요! 📈.',
+    '자동차보험분할납부' => '보험료를 나누어 납부, 경제적인 부담을 줄이세요! 💸.',
+    '차보험료계산' => '차 보험료, 계산부터 비교까지 한 번에! 📊.',
+    '자차할증' => '자차 사고 시 할증 부담, 현명하게 대처하는 방법! 🛡️.',
+    '자동차보험명의' => '명의자 변경, 보험 가입 시 유의사항! 📝.',
+    '자동차보험대인배상2' => '대인 배상 II, 무한 보장의 중요성! 💡.',
+    '신차보험' => '새 차를 위한 가장 스마트한 보험 가입! 🌟.',
+    '중고차보험가입' => '중고차 구매 후, 보험 가입은 필수! 🤝.',
+    '차량보험이력조회' => '차량의 사고 이력, 보험금 지급 내역을 투명하게 조회! 🔎.',
+    '자동차보험카드결제' => '카드 결제 시 무이자 할부 혜택을 누리세요! 💳.',
+    '자동차보험분납' => '보험료 분납, 경제적 부담을 줄이는 방법! 💸.',
+    '자동차보험계산기' => '가장 정확하고 빠른 보험료 계산기! 🧮.',
+    '다이렉트차보험료' => '다이렉트 차 보험, 가장 저렴한 보험료를 확인하세요! 💰.',
+    '자동차보험료견적비교' => '수많은 보험사의 견적을 실시간으로 비교! 📊.',
+    '자동차보험연령' => '운전자 연령 기준에 따른 보험료 차이를 확인하세요! 📈.',
+    '자동차보험자기신체사고' => '운전자 본인을 위한 최소한의 보장, 자손 특약! 🩹.',
+    '자동차보험자손' => '자기 신체 사고 보장, 현명한 선택을 도와드립니다! 🛡️.',
+    '자동차보험책임보험만' => '책임 보험만 가입 시 유의사항! 💡.',
+    '자동차보험기간' => '보험 가입 기간 설정, 가장 유리한 방법을 안내합니다! 🗓️.',
+    '자동차보험가격비교' => '가격 비교를 통해 최대 할인 혜택을 받으세요! 💸.',
+    '자동차보험자기차량손해' => '자차 보험의 보장 범위와 중요성! 🚗.',
+    '인터넷자동차보험비교견적' => '인터넷으로 간편하게, 최저가 견적을 받아보세요! 🖥️.',
+    '자동차종합보험가격' => '종합 보험의 예상 가격과 보장 내용을 확인하세요! 💰.',
+    '개인사업자자동차보험' => '개인 사업자 차량, 업무용으로 저렴하게 가입하는 방법! 💼.',
+    '자동차보험환입' => '보험료 환입, 어떤 경우에 가능한가요? 🤔.',
+    '화물차보험' => '화물차 운전자에게 최적화된 보험 상품! 🚛.',
+    '중고차보험료' => '중고차 보험료, 연식과 차종별 비교 견적! 📈.',
+    '차보험나이' => '보험료에 영향을 미치는 운전자의 나이 기준! 💡.',
+    '내자동차보험' => '내 차의 보험, 지금 바로 조회하고 관리하세요! 🔎.',
+    '다이렉트자동차보험추천' => '가장 많이 찾는 다이렉트 보험 상품 추천! 🏆.',
+    '자동차보험회사종류' => '손해보험사, 캐피탈사 등 다양한 보험사 종류를 확인하세요! 🌐.',
+    '자차보험료' => '내 차의 안전을 위한 자차 보험료, 가장 합리적인 견적! 💰.',
+    '자동차보험요율' => '보험료 산정의 핵심, 요율 등급을 확인하세요! 📊.',
+    '자동차보험카드혜택' => '카드 결제 시 무이자 할부, 포인트 적립 등 혜택을 놓치지 마세요! 🎁.',
+    '자동차보험수가' => '보험금 지급 기준이 되는 수가, 투명하게 공개! 💡.',
+    '자동차보험료견적' => '실시간으로 내 보험료 견적을 받아보세요! 🚀.',
+    '벤츠보험료' => '벤츠 오너를 위한 품격 있는 보험료 설계! 👑.',
+    '무면허자동차보험' => '무면허 운전, 보험 가입 시 불이익은? 🚨.',
+    '공동명의자동차보험' => '공동 명의 차량, 보험료 절약의 팁! 🤝.',
+    '부모님차보험' => '부모님 차량 운전 시, 유리한 보험 가입 방법! 👨‍👩‍👧‍👦.',
+    '자동차보험필수' => '자동차 보험 가입은 선택이 아닌 필수! 🛡️.',
+    '다이렉트자동차보험견적비교' => '다이렉트 견적, 빠르고 정확하게 비교하세요! 📊.',
+    '30대자동차보험료 평균 얼마 무료 실시간 조회' => '30대 운전자, 평균 보험료를 확인하고 최저가를 찾으세요! 💰.',
+    '자동차보험의무' => '법적 의무 사항, 의무 보험의 중요성! 💡.',
+    '자동차보험2대' => '차량 2대, 통합 보험 가입으로 보험료를 절약하세요! 🤝.',
+    '자동차보험회사순위' => '신뢰도, 서비스 만족도 기준 보험사 순위를 확인하세요! 🏆.',
+    '자동차보험사확인' => '내가 가입한 보험사를 지금 바로 확인하세요! 🔎.',
+    '자동차보험납부' => '보험료 납부 방법, 가장 편리한 방식을 선택하세요! 💳.',
+    '중고차자동차보험' => '중고차 구매 후, 보험 가입은 필수! 🚗.',
+    '자기차량손해보험' => '내 차를 위한 든든한 보장, 자차 보험의 모든 것! 🛡️.',
+    '부부자동차보험' => '부부 운전, 보험료 할인 혜택을 누리세요! 💑.',
+    '자동차보험가입기간' => '가입 기간 설정, 보험료에 미치는 영향은? 🗓️.',
+    '경차자동차보험' => '경차 오너, 보험료 할인 혜택을 놓치지 마세요! 💸.',
+    '내차보험료' => '내 차의 정확한 보험료를 지금 바로 조회하세요! 💰.',
+    '자동차보험설계사' => '전문 설계사의 1:1 맞춤 보험 설계! 🤝.',
+    '자동차보험갈아타기' => '만기 갱신 시, 다른 보험사로 갈아타는 노하우! 🔄.',
+    '자동차보험금' => '사고 발생 시, 보험금 청구 절차와 유의사항! 📝.',
+    '자동차보험부부' => '부부 한정 특약, 보험료를 절약하는 현명한 방법! 💑.',
+    '자동차보험할인카드' => '보험료 결제 시 할인 혜택을 제공하는 카드! 💳.',
+    '자동차보험료분납' => '보험료 분할 납부, 경제적인 부담을 줄이세요! 💸.',
+    '장애인자동차보험' => '장애인 차량, 보험료 할인 혜택을 놓치지 마세요! ♿.',
+    '화물차보험료' => '화물차 운전자에게 가장 유리한 보험료 견적! 🚛.',
+    '자동차보험료납부' => '보험료 납부, 가장 편리한 방법과 혜택! 💳.',
+    '자동차보험월납' => '보험료를 매월 나누어 납부, 부담을 줄이세요! 💸.',
+    '자동차 보험 인상률 계산기' => '내 보험료 인상률을 미리 계산해 보세요! 🧮.',
+    '테슬라보험료' => '테슬라 오너 맞춤형 보험료 견적! 🔋.',
+    '자동차보험재가입' => '보험 만기 후 재가입, 가장 저렴한 방법을 찾으세요! 🔄.',
+    '제네시스G80보험료' => 'G80 오너를 위한 프리미엄 보험료! 👑.',
+    '자동차보험장애인' => '장애인 운전자, 보험료 할인 혜택을 확인하세요! ♿.',
+    '자동차보험신용카드' => '신용카드 결제 시 혜택, 무이자 할부 등! 💳.',
+    '자동차보험료확인' => '내 보험료를 지금 바로 확인하고 비교하세요! 🔎.',
+    '자동차손해보험' => '자동차 손해에 대한 완벽한 보장! 🛡️.',
+    '다이렉트자동차보험저렴한곳' => '다이렉트 보험 중 가장 저렴한 보험사를 찾으세요! 💰.',
+    '자동차보험중복가입' => '보험 중복 가입, 보장이 달라지나요? 🤔.',
+    '자동차보험키로수' => '주행 거리에 따른 보험료 할인 혜택! 💡 마일리지 특약.',
+    '자차보험가입' => '내 차를 지키는 가장 현명한 선택, 자차 보험 가입! 🚗.',
+    '자동차보험증명서' => '보험 가입 증명서, 쉽고 빠르게 발급받으세요! 📝.',
+    '자동차보험6개월' => '단기 보험, 6개월 가입 시 유의사항! 🗓️.',
+    '자동차보험1년' => '1년 단위 보험 가입, 가장 일반적인 방법! 🛡️.',
+    '자동차보험견적비교' => '모든 보험사의 견적을 한눈에 비교하세요! 📊.',
+    '자동차보험타는만큼' => '탄 만큼 보험료를 돌려받는 마일리지 특약! 💸.',
+    '자동차보험카드할부' => '보험료 카드 할부, 무이자 혜택을 놓치지 마세요! 💳.',
+    '캠핑카보험' => '캠핑카 특화 보험 상품, 가장 합리적인 견적! 🏕️.',
+    '캠핑카보험료' => '캠핑카의 종류와 크기에 따른 보험료 견적! 💰.',
+    '자동차보험금액' => '내 차의 보험 가입 금액, 지금 바로 확인하세요! 💸.',
+    '자동차보험비용' => '자동차 보험에 들어가는 총 비용을 투명하게 공개! 💰.',
+    '차보험조회' => '내 차의 보험 정보를 지금 바로 조회하세요! 🔎.',
+    '차보험비교사이트' => '가장 인기 있는 차 보험 비교 사이트! 🏆.',
+    '자동차보험사추천' => '운전 경력, 차량별 맞춤 보험사를 추천해 드립니다! 💡.',
+    '화물보험' => '화물 운전자에게 필수! 🚛 화물 보험의 모든 것.',
+    '새차보험' => '새 차 출고, 가장 스마트하게 보험 가입! 🌟.',
+    '자동차인터넷보험' => '인터넷으로 간편하게 가입, 보험료는 더 저렴하게! 🖥️.',
+    '차량책임보험' => '차량 운행의 필수, 책임 보험 가입 안내! 🛡️.',
+    '다이렉트자동차보험료계산' => '다이렉트 보험료를 직접 계산하고 비교하세요! 🧮.',
+    '자동차보험담보' => '대인, 대물, 자차 등 필수 담보 내용을 확인하세요! 📝.',
+    '자동차보험가입경력인정' => '군대, 회사 등 경력 인정으로 보험료를 절약하세요! 🎖️.',
+    '자동차보험비교추천' => '가장 합리적인 보험 상품을 비교하고 추천해 드립니다! 🏆.',
+    '자동차보험신규' => '첫 보험 가입, 실수 없이 저렴하게! 🌟.',
+    '외국인자동차보험' => '외국인 운전자를 위한 보험 가입 가이드! 📝.',
+    '자동차보험카드할인' => '보험료 결제 시 카드 할인 혜택을 놓치지 마세요! 💳.',
+    '탄만큼내는자동차보험' => '주행 거리가 짧다면, 마일리지 특약으로 할인! 💸.',
+    '온라인자동차보험' => '온라인으로 간편하게 가입, 보험료는 최저가로! 🖥️.',
+    '자동차보험 26세' => '만 26세, 보험료 할인 폭이 가장 큰 시점! 📈.',
+    '자동차보험보장' => '필수 보장부터 특약까지, 완벽한 보험 설계! 🛡️.',
+    '인터넷자동차보험료비교견적사이트' => '인터넷 보험료 비교, 가장 확실한 방법! 🌐.',
+    '다이렉트자동차보험순위' => '다이렉트 보험사 순위, 고객 만족도와 가격 경쟁력으로! 🏆.',
+    '자동차보험결제' => '보험료 결제 방법, 가장 편리한 방식을 선택하세요! 💳.',
+    '차보험비' => '내 차 보험에 들어가는 모든 비용을 확인하세요! 💰.',
+    '차보험비교' => '차 보험 상품을 비교하고 나에게 맞는 것을 선택하세요! 📊.',
+    '차보험료조회' => '내 차 보험료를 지금 바로 실시간으로 조회하세요! 🔎.',
+    '자동차보험차량기준가액' => '보험 가입의 기준이 되는 차량 기준 가액! 💡.',
+    '차량보험비교' => '다양한 보험사의 차량 보험 상품을 비교하세요! 📊.',
+    '차량보험료조회' => '내 차량 보험료를 지금 바로 조회하세요! 💰.',
+    '차량보험가입' => '내 차의 안전을 위한 필수 선택, 차량 보험 가입! 🛡️.',
+    '미성년자자동차보험' => '미성년자 운전 시, 보험 가입 방법은? 📝.',
+    '실시간자동차보험료비교견적사이트' => '실시간으로 가장 정확한 보험료 견적을 제공하는 사이트! 🌐.',
+    '자동차보험인터넷가입' => '인터넷으로 쉽고 빠르게 보험에 가입하세요! 🖥️.',
+    '자동차보험등급확인' => '내 운전 경력 등급을 지금 바로 확인하세요! 🏆.',
+    '자동차보험가액' => '내 차의 보험 가액을 정확히 파악하고 가입! 📊.',
+    '누구나자동차보험' => '운전자 범위 제한 없는 누구나 보험, 보험료 견적! 💸.',
+    '자차가입' => '내 차를 위한 든든한 보장, 자차 가입의 모든 것! 🚗.',
+    '자동차보험설계' => '전문가의 1:1 맞춤 보험 설계 서비스를 받으세요! 🤝.',
+    '탄만큼내는보험' => '주행 거리 절약으로 보험료를 환급받으세요! 💰.',
+    '자동차보험가입거절' => '보험 가입 거절 시, 현명하게 대처하는 방법! 🛡️.',
+    '경차자동차보험료' => '경차 오너, 보험료 할인 혜택을 놓치지 마세요! 💸.',
+    '자동차보험서비스' => '보험사별 제공되는 다양한 부가 서비스를 비교하세요! 🎁.',
+    '자동차보험가입방법' => '초보자도 쉽게! 📝 가장 빠르고 간단한 가입 방법.',
+    '자동차보험저렴' => '가장 저렴한 보험사를 찾는 비밀 노하우! 💡.',
+    '자동차보험료싼곳' => '보험료가 가장 저렴한 회사를 추천해 드립니다! 🏆.',
+    '차보험확인' => '내 차의 보험 가입 정보를 지금 바로 확인하세요! 🔎.',
+    '차량보험료계산' => '내 차량 보험료를 정확하게 계산해 보세요! 🧮.',
+    '자동차책임보험가입방법' => '책임 보험 가입, 가장 빠르고 간단한 방법! 🚀.',
+    '자동차보험사순위' => '고객 만족도, 가격 경쟁력 기준 보험사 순위! 🏆.',
+    '전기차자동차보험' => '전기차 특화 보험 상품, 가장 합리적인 견적! 🔋.',
+    '자동차보험점유율' => '보험사별 시장 점유율을 확인하고 선택하세요! 📊.',
+    '자동차보험가입내역조회' => '내가 가입한 모든 보험 내역을 한 번에 조회! 🔎.',
+    '자동차보험료카드' => '카드 결제 시 무이자 할부, 할인 혜택을 확인하세요! 💳.',
+    '자동차보험상담' => '전문가와의 1:1 무료 상담으로 보험 설계를 받으세요! 🤝.',
+    '자동차보험료비교사이트' => '가장 인지도 높은 보험료 비교 사이트! 🌐.',
+    '자동차의무보험가입' => '의무 보험, 가장 빠르고 저렴하게 가입하는 방법! 🛡️.',
+    '차보험료비교' => '차 보험료를 비교하고 최대 할인을 받으세요! 💸.',
+    '레이자동차보험' => '레이 오너, 경차 할인 혜택을 놓치지 마세요! 🌟.',
+    '자동차보험료갱신' => '만기 갱신, 가장 현명한 방법은? 🔄.',
+    '아이오닉9보험료' => '현대 아이오닉 9, 새로운 전기차의 보험료 견적! 🔋.',
+    '첫차보험' => '첫 차 구매자, 보험료 부담을 덜어줄 최적의 플랜! 💡.',
+    '자동차보험가입혜택' => '다양한 보험사별 가입 혜택을 비교하세요! 🎁.',
+    '자동차다이렉트보험비교견적' => '다이렉트 견적, 빠르고 정확하게 받아보세요! 📊.',
+    '이쿼녹스EV 보험료' => '쉐보레 이쿼녹스 EV, 전기차 보험료 견적! 🇺🇸.',
+    '자동차보험당일가입' => '당일 출고 차량, 보험도 당일 가입하세요! 🚀.',
+    '자동차다이렉트비교' => '다이렉트 보험 상품을 비교하고 최저가를 찾으세요! 💸.',
+    '자동차책임보험료' => '책임 보험료, 가장 저렴한 가격을 확인하세요! 💰.',
+    '제네시스 GV90 보험료' => 'GV90, 플래그십 전기차의 보험료는? 👑.',
+    '화물자동차보험' => '화물차 운전자에게 최적화된 보험 상품! 🚛.',
+    '콜로라도보험료' => '콜로라도 픽업트럭, 보험료 견적 비교! 🇺🇸.',
+    '1톤트럭보험료' => '1톤 트럭 운전자, 가장 저렴한 보험료를 찾으세요! 🚚.',
+    '자동차보험싸게' => '보험료를 가장 싸게 가입하는 비밀 노하우! 💡.',
+    '자동차보험등록' => '차량 등록 시 필수 절차, 보험 등록 안내! 📝.',
+    '카이엔 보험료' => '포르쉐 카이엔, 럭셔리 SUV의 보험료 견적! 🇩🇪.',
+    '40대자동차보험' => '40대 운전자, 안정적인 보험료 혜택을 누리세요! 📈.',
+    '자동차보험알아보기' => '자동차 보험에 대한 모든 것을 쉽게 알아보세요! 📚.',
+    '자동차보험신규가입' => '신규 가입자, 가장 유리한 조건으로 보험 가입! 🌟.',
+    '코란도 kr10 보험료' => 'KG모빌리티 코란도 kr10, 신형 SUV 보험료 견적! 🌲.',
+    '자동차보험비교어플' => '모바일로 간편하게 보험료를 비교하세요! 📱.',
+    '차량의무보험' => '차량 운행의 필수, 의무 보험 가입! 🛡️.',
+    '자동차보험예상' => '내 보험료를 미리 예상하고 대비하세요! 📊.',
+    '다이렉트차보험' => '다이렉트 차 보험, 가장 저렴하게 가입하는 방법! 💸.',
+    '인터넷다이렉트보험' => '인터넷으로 간편하게, 최저가 다이렉트 보험! 🖥️.',
+    '자동차보험만료' => '보험 만료일이 다가온다면, 지금 바로 갱신하세요! 🔄.',
+    '자동차보험가입시간' => '보험 가입 시간, 당일 가입도 가능! 🚀.',
+    '자동차첫보험료' => '첫 보험료, 가장 저렴하게 가입하는 노하우! 💰.',
+    '내차자동차보험' => '내 차 맞춤형 보험 설계! 🛡️.',
+    '자동차보험료카드결제' => '카드 결제 시 무이자 할부 혜택을 놓치지 마세요! 💳.',
+    '자동차필수보험' => '법적 의무 사항, 필수 보험 가입! 💡.',
+    '자동차책임보험보상' => '책임 보험의 보상 범위와 한도를 확인하세요! 📝.',
+    '르노5보험료' => '르노 5, 유럽 소형차의 보험료 견적! 🇫🇷.',
+    '캉구 보험료' => '르노 캉구, 상용차 특화 보험료 견적! 🚚.',
+    '자동차보험료저렴한곳' => '보험료가 가장 저렴한 회사를 추천해 드립니다! 🏆.',
+    '화물차자동차보험' => '화물차 운전자에게 최적화된 보험 상품! 🚛.',
+    '자동차보험료예상' => '내 보험료를 미리 예상하고 대비하세요! 📊.',
+    '자동차다이렉트보험견적' => '다이렉트 견적, 가장 빠르고 정확하게 받아보세요! 🚀.',
+    '다이렉트보험비교견적' => '다이렉트 보험 상품을 비교하고 최저가를 찾으세요! 💸.',
+    '다이렉트자동차보험가입' => '다이렉트 보험, 쉽고 빠르게 가입하세요! 🖥️.',
+    '자동차다이렉트보험추천' => '가장 인기 있는 다이렉트 보험 상품 추천! 🏆.',
+    '자동차보험다이렉트비교사이트' => '다이렉트 보험만 모아서 비교하는 사이트! 🌐.',
+    '자동차보험가입이력' => '내 보험 가입 이력을 지금 바로 조회하세요! 🔎.',
+    '개인자동차보험' => '개인 차량 운전자를 위한 맞춤 보험 설계! 🛡️.',
+    '자동차보험누구나운전' => '운전자 범위 제한 없는 누구나 운전 특약! 🚗.',
+    '자동차보험금조회' => '보험금 지급 내역을 지금 바로 조회하세요! 💰.',
+    '자동차종합보험비교' => '종합 보험 상품을 비교하고 가장 유리한 것을 선택하세요! 📊.',
+    '차량보험료비교' => '차량 보험료를 비교하고 최대 할인을 받으세요! 💸.',
+    '19살자동차보험' => '19세 운전자, 가장 저렴한 보험료를 찾는 방법! 🌟.',
+    '만30세자동차보험' => '만 30세, 보험료 할인 폭이 가장 큰 시점! 📈.',
+    '법인차량보험료' => '법인 차량, 합리적인 보험료로 가입하는 방법! 💼.',
+    '법인차자동차보험' => '법인 차량 운전자를 위한 맞춤 보험 설계! 🛡️.',
+    '캠핑카자동차보험' => '캠핑카 오너, 특화 보험 상품을 찾아 드립니다! 🏕️.',
+    '만28세자동차보험료' => '만 28세, 보험료 할인 혜택을 놓치지 마세요! 💰.',
+    '자동차보험산출' => '내 조건에 맞는 보험료를 지금 바로 산출하세요! 🧮.',
+    '법인차량자동차보험' => '법인 차량 운전자를 위한 가장 합리적인 보험! 💼.',
+    'K8보험료' => '기아 K8, 준대형 세단 보험료 견적! 🌟.',
+    '자동차보험검색' => '내게 맞는 보험 상품을 지금 바로 검색하세요! 🔎.',
+    '트위지보험' => '트위지 오너, 초소형 전기차 보험료 견적! 🛵.',
+    '자동차다이렉트보험계산' => '다이렉트 보험료를 직접 계산하고 비교하세요! 🧮.',
+    '자동차보험다이렉트차이' => '다이렉트 보험과 일반 보험의 차이점을 확인하세요! 💡.',
+    '차보험다이렉트' => '다이렉트 차 보험, 가장 저렴하게 가입하는 방법! 💸.',
+    '다이렉트보험추천' => '가장 인기 있는 다이렉트 보험 상품 추천! 🏆.',
+    '23살차보험료' => '23세 운전자, 보험료 할인 혜택을 놓치지 마세요! 💰.',
+    '차량보험비' => '내 차량 보험에 들어가는 모든 비용을 확인하세요! 💸.',
+    '자동차보험어플' => '모바일로 간편하게 보험료를 비교하고 가입하세요! 📱.',
+    '자동차보험전화가입' => '전화 상담을 통한 간편 가입 서비스! 📞.',
+    '벤츠S클래스보험료' => '벤츠 S클래스, 최상위 세단의 보험료 견적! 👑.',
+    '자동차보험종합보험' => '종합 보험 가입, 완벽한 보장을 위한 필수 선택! 🛡️.',
+    '자동차보험사종류' => '다양한 보험사 종류와 특징을 확인하세요! 🌐.',
+    '자동차보험통합' => '여러 대의 차량을 한 번에 관리! 🤝 통합 보험 서비스.',
+    '첫차자동차보험료' => '첫 차 구매자, 가장 저렴한 보험료를 찾으세요! 🌟.',
+    '업무용차량보험' => '업무용 차량, 합리적인 보험료로 가입하는 방법! 💼.',
+    '22살차보험료' => '22세 운전자, 보험료 할인 혜택을 놓치지 마세요! 💰.',
+    '다이렉트자동차보험싼곳' => '다이렉트 보험 중 가장 저렴한 보험사를 찾으세요! 💸.',
+    '다이렉트자동차보험조회' => '다이렉트 보험 정보를 지금 바로 조회하세요! 🔎.',
+    '차종별보험료' => '내 차종에 딱 맞는 보험료를 비교하고 선택하세요! 📊.',
+    '다이렉트자동차보험견적비교사이트' => '다이렉트 보험 비교의 모든 것을 제공하는 사이트! 🌐.',
+    '저렴한다이렉트자동차보험' => '가성비 최고! 💰 저렴하면서 든든한 다이렉트 보험.',
+    '자동차보험비교혜택' => '보험사별 비교 혜택을 확인하고 최대 할인을 받으세요! 🎁.',
+    '자동차보험료분할납부' => '보험료 분납, 경제적인 부담을 줄이는 방법! 💸.',
+    '1톤트럭보험' => '1톤 트럭 운전자, 가장 저렴한 보험 상품! 🚚.',
+    '자동차의무보험가격' => '의무 보험료, 가장 저렴한 가격을 확인하세요! 💰.',
+    '자차보험조회' => '내 자차 보험 가입 정보를 지금 바로 조회하세요! 🔎.',
+    '자동차보험드는법' => '자동차 보험 가입, 초보자도 쉽게 따라 할 수 있는 방법! 📝.',
+    '자차보험가격' => '자차 보험의 평균 가격과 최저가 견적을 비교! 💸.',
+    '자동차보험할인특약' => '블랙박스, 마일리지 등 다양한 할인 특약을 확인하세요! 💡.',
+    '자동차보험들기' => '내 차의 안전을 위한 필수 선택, 보험 가입! 🛡️.',
+    '자동차보험전연령' => '전연령 운전 가능, 보험료 견적을 확인하세요! 🚗.',
+    '자동차보험12개월' => '1년 단위 보험 가입, 가장 일반적인 방법! 🗓️.',
+    '무쏘 ev 보험료' => '쌍용 무쏘 EV, 새로운 전기차의 보험료 견적! 🔋.',
+    '인터넷자동차보험비교견적사이트' => '인터넷 보험료 비교, 가장 확실한 방법! 🌐.',
+    '자동차보험견적사이트' => '믿을 수 있는 보험 견적 사이트에서 비교하세요! 🏆.',
+    '자동차보험비교사이트순위' => '고객 만족도 기준 보험 비교 사이트 순위! 🥇.',
+    '자동차보험료다이렉트' => '다이렉트 보험료, 가장 저렴한 가격을 확인하세요! 💰.',
+    '차량보험견적' => '내 차량 보험 견적을 지금 바로 받아보세요! 📊.',
+    '차보험견적' => '차 보험 견적, 가장 빠르고 정확하게! 🚀.',
+    '자동차보험비교하기' => '다양한 보험사를 비교하고 나에게 맞는 것을 선택하세요! 💸.',
+    '자동차보험가입하기' => '쉽고 빠르게 자동차 보험에 가입하세요! 🖥️.',
+    'BMW자동차보험' => 'BMW 오너를 위한 맞춤 보험 설계! 🇩🇪.',
+    '자동차다이렉트보험순위' => '다이렉트 보험사 순위, 고객 만족도 기준! 🏆.',
+    '차량다이렉트보험' => '다이렉트 차량 보험, 가장 저렴하게 가입하는 방법! 💸.',
+    '자동차보험다이렉트가입' => '다이렉트 보험, 쉽고 빠르게 가입하세요! 🖥️.',
+    '자동차보험료산정' => '내 보험료가 어떻게 산정되는지 확인하세요! 💡.',
+    '자동차보험어디' => '내게 맞는 보험사를 지금 바로 찾으세요! 🔎.',
+    '자동차보험가입비교' => '다양한 보험 상품을 비교하고 가입하세요! 📊.',
+    '자동차비교보험' => '보험 상품 비교를 통해 최대 할인을 받으세요! 💸.',
+    '자동차보험다이렉트비교견적' => '다이렉트 견적, 빠르고 정확하게 비교하세요! 🚀.',
+    '자동차다이렉트보험종류' => '다이렉트 보험 상품 종류와 특징을 확인하세요! 📝.',
+    '다이렉트자동차보험종류' => '다이렉트 보험의 다양한 종류와 보장 내용을 확인하세요! 🛡️.',
+    '차보험료견적' => '내 차 보험료 견적을 지금 바로 받아보세요! 💰.',
+    '다이렉트보험자동차' => '다이렉트 보험, 가장 저렴하게 자동차 보험 가입! 💸.',
+    '다이렉트자동차보험할인' => '다이렉트 보험의 다양한 할인 혜택을 놓치지 마세요! 🎁.',
+    '다이렉트자동차보험계산' => '다이렉트 보험료를 직접 계산하고 비교하세요! 🧮.',
+    '다이렉트자동차보험혜택' => '다이렉트 보험사별 특별 혜택을 확인하세요! 🌟.',
+    '사업자자동차보험' => '사업자 차량, 합리적인 보험료로 가입하는 방법! 💼.',
+    '차보험비교견적' => '차 보험 견적 비교, 가장 확실한 방법! 📊.',
+    '자동차다이렉트보험사' => '다이렉트 보험사 목록과 특징을 한눈에! 🌐.',
+    '자동차보험비교조회' => '내 보험 정보를 비교 조회하고 최저가를 찾으세요! 🔎.',
+    '차보험계산기' => '차 보험료 계산, 쉽고 빠르게! 🧮.',
+    '자동차다이렉트보험비교사이트' => '다이렉트 보험 비교의 모든 것을 제공하는 사이트! 🌐.',
+    '다이렉트자동차보험저렴' => '가장 저렴한 다이렉트 보험을 찾으세요! 💰.',
+    '자동차보험료월납' => '보험료를 매월 나누어 납부, 경제적인 부담을 줄이세요! 💸.',
+    '자동차신규보험' => '첫 보험 가입, 실수 없이 저렴하게! 🌟.',
+    '인터넷자동차보험비교사이트' => '인터넷 보험 비교, 가장 확실한 방법! 🌐.',
+    '온라인자동차보험비교견적' => '온라인으로 간편하게, 최저가 견적을 받아보세요! 🖥️.',
+    '인터넷자동차보험료비교' => '인터넷 보험료 비교를 통해 최대 할인을 받으세요! 💸.',
+    '다이렉트보험료비교견적' => '다이렉트 보험료, 실시간으로 비교하고 최저가를 찾으세요! 📊.',
+    '자동차보험다이렉트법인' => '다이렉트 보험, 법인 차량도 가입 가능! 💼.',
+    '자동차보험견적내기' => '내 보험료 견적을 지금 바로 받아보세요! 🚀.',
+    '자동차다이렉트보험가격비교' => '다이렉트 보험 가격을 비교하고 최저가를 찾으세요! 💰.',
+    '자차보험가입' => '내 차를 위한 든든한 보장, 자차 가입의 모든 것! 🚗.',
+    '자동차종합보험가격' => '종합 보험의 예상 가격과 보장 내용을 확인하세요! 🛡️.',
+    '자동차보험회사순위' => '신뢰도, 서비스 만족도 기준 보험사 순위 공개! 🏆.',
+    '첫자동차보험료' => '첫 차 구매자, 가장 저렴한 보험료를 찾는 방법! 🌟.',
+    '차 보험료' => '내 차의 정확한 보험료를 지금 바로 조회하세요! 💰.',
+    '자동차보험가격비교' => '가격 비교를 통해 최대 할인 혜택을 받으세요! 💸.',
+    '인터넷자동차보험' => '인터넷으로 간편하게 가입, 보험료는 더 저렴하게! 🖥️.',
+    '다이렉트자동차보험비교견적' => '다이렉트 견적, 빠르고 정확하게 비교하세요! 🚀.',
+    '자동차보험가족한정범위' => '가족 운전자 범위를 설정하여 보험료를 절약하세요! 👨‍👩‍👧‍👦.',
+    '자동차책임보험가격' => '책임 보험료, 가장 저렴한 가격을 확인하세요! 💰.',
+    '자동차보험 다이렉트 비교' => '다이렉트 보험 상품을 비교하고 최저가를 찾으세요! 💸.',
+    '자동차보험료계산' => '내 조건에 맞는 보험료를 지금 바로 계산하세요! 🧮.',
+    '자동차보험할증기준' => '사고 발생 시 보험료 할증 기준을 확인하세요! 💡.',
+    '자동차보험료1년' => '1년치 보험료, 지금 바로 실시간으로 확인하고 비교! 📈.',
+    '자동차보험비교견적' => '수많은 보험사의 견적을 한눈에 비교하고 최저가를 찾으세요! 📊.',
+    '20대자동차보험료' => '20대 운전자, 가장 저렴한 보험료를 찾는 방법! 🌟.',
+    '자동차보험견적' => '믿을 수 있는 보험사들의 정확한 견적을 받아보세요! 🤝.',
+    '자동차보험추천' => '운전 경력, 차량 종류별 맞춤 보험 상품을 추천해 드립니다! 💡.',
+    '다이렉트자동차보험료' => '중개 수수료 없는 다이렉트 보험료, 지금 바로 확인하세요! 💸.',
+    '자동차보험 만26세' => '만 26세, 보험료 할인 폭이 가장 큰 시점! 📈.',
+    '자동차보험 신규' => '첫 보험 가입, 실수 없이 저렴하게! 🌟.',
+    '자동차보험비교견적사이트' => '보험 전문가들이 추천하는 최고의 비교 견적 사이트! 🏆.',
+    '자동차 책임보험 가입' => '의무 보험, 가장 빠르고 저렴하게 가입하는 방법! 🛡️.',
+    '전기차보험료' => '전기차 오너라면 필수! 🔋 전기차 특화 보험료를 비교하세요.',
+    '자동차보험순위' => '고객 만족도, 가격 경쟁력 기준 보험사 순위 공개! 🏆.',
+    '20살자동차보험료' => '20살 운전자, 가장 저렴한 보험료를 찾는 방법! 🌟.',
+    '자동차보험 경력인정' => '군대, 회사 등 운전 경력을 인정받아 보험료를 할인! 🎖️.',
+    '자동차보험조회' => '내 보험 가입 내역, 계약 정보 등 모든 것을 한 번에 조회! 🔎.',
+    '자동차보험종류' => '책임, 종합, 자차 등 복잡한 보험 종류를 쉽게 이해하세요! 💡.',
+];
+
+// PHP에서 무작위 추출 및 셔플
+$selected_data = [];
+$keys = array_keys($data);
+shuffle($keys); // 키 순서를 무작위로 섞음
+
+$count = 0;
+$min_count = 88;
+$max_count = 99;
+
+foreach ($keys as $key) {
+    if ($count >= $max_count) {
+        break;
+    }
+    // 최소 88개는 추출되도록, 이후는 무작위로 포함
+    if ($count < $min_count || mt_rand(0, 1) === 1) {
+        $selected_data[$key] = $data[$key];
+        $count++;
+    }
+}
+
+// 최종적으로 선택된 데이터를 다시 한번 섞음 (시각적 무작위성 강화)
+$final_data = $selected_data;
+$final_keys = array_keys($final_data);
+shuffle($final_keys);
+
+foreach ($final_keys as $key) {
+    $url = $final_data[$key];
+    $description = $descriptions[$key] ?? '이 상품에 대한 자세한 정보와 최적의 견적을 지금 바로 확인해 보세요!';
+
+    echo '<div class="insurance-item">';
+    echo '    <div>';
+    echo '        <a href="' . htmlspecialchars($url) . '" target="_blank" class="keyword-link">' . htmlspecialchars($key) . '</a>';
+    echo '        <a href="' . htmlspecialchars($url) . '" target="_blank" class="description-link">';
+    echo '            ' . htmlspecialchars($description);
+    echo '        </a>';
+    echo '    </div>';
+    echo '</div>';
+}
+?>
+        
+    </div>
 </div>
 
-<div class="link-grid">
-    <div class="grid-item">
-        <div class="keyword">자동차보험비용</div>
-        <a href="https://directipmow.withusdone.com/" target="_blank" class="description-link">합리적인 차량 관리를 위한 첫 단계, 자동차 보험의 총 비용을 정확하게 분석하고 비교하여 예산을 절약하는 방법을 모색해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험견적</div>
-        <a href="http://bohumpromotionf.cafe24.com/" target="_blank" class="description-link">나에게 가장 유리한 견적을 찾아내는 핵심 전략을 공개합니다. 여러 보험사의 견적을 실시간으로 비교하고 최저가 기회를 놓치지 마세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험견적</div>
-        <a href="https://directbpmof.withusdone.com/" target="_blank" class="description-link">수많은 옵션 속에서 나만의 베스트 견적을 찾는 여정, 지금 바로 시작하여 맞춤형 설계를 통해 보험료를 최적화해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험비교견적사이트</div>
-        <a href="https://directapmon.withusdone.com/" target="_blank" class="description-link">복잡한 과정을 생략하고 가장 저렴한 다이렉트 상품을 찾는 지름길. 주요 보험사들의 견적을 한 번에 비교하고 최고의 가치를 확보하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">중고차보험가입</div>
-        <a href="https://directfpmow.withusdone.com/" target="_blank" class="description-link">새 주인을 맞이한 중고차, 신차와 다름없는 든든한 보장을 위해 반드시 알아야 할 중고차 보험 가입의 모든 절차와 팁을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험료</div>
-        <a href="http://bohumpromotioni.cafe24.com/" target="_blank" class="description-link">중간 유통 마진 없이 투명하게 공개되는 다이렉트 보험료의 세계. 지금 바로 계산하고 기존 대비 절약 효과를 경험해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험할인할증등급</div>
-        <a href="https://directcpmof.withusdone.com/" target="_blank" class="description-link">내 보험료를 결정하는 숨겨진 비밀, 할인/할증 등급의 정확한 기준과 관리 노하우를 파악하여 다음 갱신 시기를 대비하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가입이력</div>
-        <a href="https://directmpmor.withusdone.com/" target="_blank" class="description-link">과거의 기록이 미래의 보험료를 좌우합니다. 자신의 자동차 보험 가입 이력을 명확히 조회하고 보험료 산출에 유리하게 활용하는 방법을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험변경</div>
-        <a href="https://directcpmox.withusdone.com/" target="_blank" class="description-link">차량 교체, 운전자 범위 수정 등 변경 사항이 있을 때! 복잡하지 않게 보험 계약을 효율적으로 변경하는 단계별 안내를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가격</div>
-        <a href="https://directepmob.withusdone.com/" target="_blank" class="description-link">운전자의 특성에 따라 천차만별인 자동차 보험의 가격 구조. 가장 합리적인 가격대를 찾아내기 위한 필수 비교 정보를 놓치지 마세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료산정</div>
-        <a href="https://directppmoa.withusdone.com/" target="_blank" class="description-link">보험료가 산출되는 복잡한 과정을 이해하면 절약이 시작됩니다. 주요 산정 기준과 할인 요소를 면밀히 검토하여 최적의 보험료를 예상해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가입</div>
-        <a href="https://directbpmoq.withusdone.com/" target="_blank" class="description-link">안전한 운전을 위한 의무이자 권리, 자동차 보험 가입의 핵심 절차와 필요한 서류를 간결하게 정리하여 손쉽게 가입을 완료하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험사</div>
-        <a href="https://directcpmow.withusdone.com/" target="_blank" class="description-link">신뢰할 수 있는 보험사를 선택하는 것이 보장의 첫걸음입니다. 주요 자동차 보험사들의 특징과 장점을 비교하고 최적의 파트너를 찾으세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료 할부</div>
-        <a href="https://directupromotiont.withusdone.com/" target="_blank" class="description-link">목돈 부담을 덜어주는 보험료 할부 납부 옵션. 금융 부담을 분산시키고 안정적인 보험 유지를 위한 현명한 할부 계획을 세워보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험비교</div>
-        <a href="https://directapmoh.withusdone.com/" target="_blank" class="description-link">가격과 보장을 동시에 잡는 최적의 선택, 다이렉트 상품들의 세부 항목을 비교하여 숨겨진 할인 혜택까지 모두 찾아내세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험종류</div>
-        <a href="https://bohumpromotiont.cafe24.com/" target="_blank" class="description-link">책임보험부터 종합보험까지, 복잡하게만 느껴지는 자동차 보험의 다양한 종류와 각 보장 항목의 차이를 명확하게 이해해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험회사순위</div>
-        <a href="http://directcarpromotg.cafe24.com/" target="_blank" class="description-link">고객 만족도와 보상 서비스 품질을 기준으로 한 신뢰도 높은 보험사 순위를 확인하여 후회 없는 선택을 위한 참고 자료로 활용해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차량보험료</div>
-        <a href="https://directdpmof.withusdone.com/" target="_blank" class="description-link">내 차량의 모델, 연식, 운전 경력 등 모든 조건이 반영된 현실적인 차량 보험료를 조회하고, 절약할 수 있는 포인트를 분석하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료갱신</div>
-        <a href="https://directlpmob.withusdone.com/" target="_blank" class="description-link">만기일이 다가올 때마다 현명한 갱신을 위한 준비는 필수입니다. 보험료 변동 요소를 점검하고 최적의 시기에 재가입하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">신차보험가입</div>
-        <a href="https://directepmol.withusdone.com/" target="_blank" class="description-link">갓 출고된 신차를 위한 가장 완벽한 보호 장치. 손해율과 자기부담금을 고려한 신차 보험 가입의 핵심 체크리스트를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료계산기</div>
-        <a href="https://directupromotione.withusdone.com/" target="_blank" class="description-link">복잡한 계산은 이제 그만! 간편하게 내 조건만 입력하면 예상 보험료를 바로 확인할 수 있는 온라인 계산기로 편리함을 경험하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험종류</div>
-        <a href="https://directapmox.withusdone.com/" target="_blank" class="description-link">운전 상황에 맞춰 대인, 대물, 자손, 자차 등 필수 담보와 선택 특약의 종류를 파악하고 부족함 없는 보장 설계를 완성하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가격비교</div>
-        <a href="http://directcarpromotl.cafe24.com/" target="_blank" class="description-link">단 몇 분 투자로 수십만원을 절약할 수 있는 비밀! 여러 보험사의 가격을 투명하게 비교하여 가장 경제적인 상품을 찾아내세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험자차</div>
-        <a href="https://directbpmoy.withusdone.com/" target="_blank" class="description-link">내 차의 손해를 보장하는 자차 보험. 필수 가입 여부와 보상 범위를 명확히 이해하고 든든한 자기 차량 손해 보장을 확보하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료계산</div>
-        <a href="http://bohumpromotiona.cafe24.com/" target="_blank" class="description-link">정확하고 빠른 보험료 계산을 통해 예산을 미리 책정하세요. 다양한 할인 요소들을 적용하여 실제 납부 금액을 예측해볼 수 있습니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험비교견적</div>
-        <a href="https://directapmot.withusdone.com/" target="_blank" class="description-link">쉽고 간편하게 보험료를 절약하는 스마트한 방법. 실시간으로 다이렉트 상품들의 견적을 비교하고 최상의 혜택을 선택하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험다이렉트</div>
-        <a href="https://directapmoe.withusdone.com/" target="_blank" class="description-link">설계사 없이 스스로 가입하여 수수료를 절감하는 합리적인 선택. 다이렉트 보험의 장점과 가입 노하우를 상세히 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">신차자동차보험료</div>
-        <a href="https://directcarunmem.withusdone.com/" target="_blank" class="description-link">새 차를 위한 첫 보험, 신차 구매 시 고려해야 할 특약과 보험료 산출 기준을 면밀히 검토하여 최적의 조건을 설계하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료비교</div>
-        <a href="https://directapmoq.withusdone.com/" target="_blank" class="description-link">수많은 보험사의 상품을 펼쳐놓고 나에게 가장 유리한 조건을 찾아보세요. 보장은 높이고 비용은 낮추는 비교의 기술을 알려드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료계산</div>
-        <a href="https://directapmog.withusdone.com/" target="_blank" class="description-link">내 차량 정보와 운전 경력을 바탕으로 정확한 보험료를 계산합니다. 예상 보험료를 확인하고 금융 계획을 미리 세워보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="http://bohumpromotionc.cafe24.com/" target="_blank" class="description-link">1년 단위로 납부하는 보험료의 총액을 미리 예측하세요. 연간 예산을 책정하고 분할 납부 시의 장단점을 함께 고려할 수 있습니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트차보험비교</div>
-        <a href="https://directcpmon.withusdone.com/" target="_blank" class="description-link">온라인으로 간편하게, 최저가 다이렉트 자동차 보험을 찾는 가장 효율적인 방법. 다양한 회사의 상품을 즉시 비교해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">만25세 자동차보험</div>
-        <a href="https://directcarunmej.withusdone.com/" target="_blank" class="description-link">특정 연령대에서 유리해지는 보험료 혜택을 놓치지 마세요. 만 25세 운전자에게 적용되는 특별 할인과 보험료 절약 팁을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험다이렉트비교견적</div>
-        <a href="https://directppmoe.withusdone.com/" target="_blank" class="description-link">가장 합리적인 가격으로 다이렉트 보험에 가입하는 필수 단계. 여러 보험사의 견적을 꼼꼼하게 비교하고 최적의 계약을 맺으세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험다이렉트비교</div>
-        <a href="https://directbpmoa.withusdone.com/" target="_blank" class="description-link">다이렉트 채널의 장점을 극대화! 여러 보험사의 다이렉트 상품을 비교하여 가장 저렴하면서도 보장 내용은 탄탄한 상품을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="https://directapmok.withusdone.com/" target="_blank" class="description-link">자동차 보험료의 연간 총액을 예측하고, 월별 또는 분할 납부 시의 금융 계획을 세울 수 있도록 정확한 1년 보험료를 산출해드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료조회</div>
-        <a href="https://directbpmot.withusdone.com/" target="_blank" class="description-link">간편하고 빠르게 내 조건에 맞는 예상 보험료를 조회합니다. 다양한 할인 특약 적용 후의 최종 보험료를 지금 바로 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험료비교견적사이트</div>
-        <a href="https://directapmop.withusdone.com/" target="_blank" class="description-link">여러 보험사의 다이렉트 보험료를 단 한 번의 접속으로 비교합니다. 시간을 절약하고 최저가 견적을 얻는 가장 확실한 방법을 알려드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차책임보험</div>
-        <a href="https://directapmoj.withusdone.com/" target="_blank" class="description-link">자동차 운전자라면 반드시 가입해야 하는 필수 의무 보험. 책임보험의 최소 보장 범위와 미가입 시 불이익에 대해 상세히 알아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험할증</div>
-        <a href="https://directapmom.withusdone.com/" target="_blank" class="description-link">사고 발생 후 보험료가 인상되는 할증의 기준과 할증을 최소화할 수 있는 관리 방안에 대해 심층적으로 분석하고 대비하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비교견적</div>
-        <a href="https://directapmoo.withusdone.com/" target="_blank" class="description-link">수많은 보험 상품 속에서 나에게 꼭 맞는 최저가 견적을 찾습니다. 보장 내용은 그대로 유지하면서 보험료는 대폭 절감하는 비결을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료비교견적사이트</div>
-        <a href="https://directapmoa.withusdone.com/" target="_blank" class="description-link">가장 많은 운전자들이 선택하는 보험료 비교 견적 서비스. 여러 회사의 상품을 실시간으로 비교하고 가장 경제적인 가입을 도와드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료비교견적</div>
-        <a href="https://directapmoc.withusdone.com/" target="_blank" class="description-link">가격 경쟁력을 확보하는 가장 스마트한 방법. 여러 보험사의 보험료를 정확하게 비교하고 투명한 견적을 받아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료할증</div>
-        <a href="https://directapmoy.withusdone.com/" target="_blank" class="description-link">사고 이력에 따른 보험료 할증 폭과 기준을 명확히 파악하여, 다음 갱신 시 예상되는 보험료 인상분을 미리 계산해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="https://directcarunmf.withusdone.com/" target="_blank" class="description-link">차량 유지비의 큰 부분을 차지하는 1년치 자동차 보험료. 운전 조건에 따른 정확한 예상 비용을 산출하여 재정 계획에 반영하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험비교견적</div>
-        <a href="http://m.directcarpromotq.cafe24.com/" target="_blank" class="description-link">모바일 환경에 최적화된 간편 비교 견적 서비스. 언제 어디서든 몇 번의 터치로 최저가 다이렉트 보험료를 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료계산</div>
-        <a href="https://directapmog.withusdone.com/" target="_blank" class="description-link">내 차량 정보와 운전 경력을 바탕으로 정확한 보험료를 계산합니다. 예상 보험료를 확인하고 금융 계획을 미리 세워보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료계산기</div>
-        <a href="https://directapmor.withusdone.com/" target="_blank" class="description-link">단순한 입력만으로 복잡한 보험료 산출을 대신해주는 계산기. 빠르고 정확한 예상 보험료를 확인하여 시간을 절약하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료할인</div>
-        <a href="https://directepmos.withusdone.com/" target="_blank" class="description-link">블랙박스, 마일리지, 자녀 할인 등 놓치기 쉬운 다양한 할인 특약들을 한눈에 모아보고 최대한의 할인 혜택을 적용하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험회사순위</div>
-        <a href="https://directhpmoi.withusdone.com/" target="_blank" class="description-link">소비자 만족도, 지급 여력, 서비스 품질을 기준으로 한 자동차 보험사들의 명확한 순위를 참고하여 신뢰할 수 있는 곳을 선택하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험갱신</div>
-        <a href="https://directbpmoh.withusdone.com/" target="_blank" class="description-link">보험 만기 전 놓치지 말아야 할 갱신 절차와 주의사항. 보험료 인상 없이 안정적으로 계약을 유지하는 노하우를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험추천</div>
-        <a href="https://directbpmoi.withusdone.com/" target="_blank" class="description-link">운전 패턴과 차량 종류를 분석하여 맞춤형으로 추천하는 베스트 보험 상품. 합리적인 보장과 가격을 모두 갖춘 선택을 도와드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비교사이트</div>
-        <a href="https://directbpmok.withusdone.com/" target="_blank" class="description-link">시간과 비용을 동시에 절약하는 스마트한 비교 플랫폼. 국내 주요 보험사들의 견적을 실시간으로 비교하고 최저가를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가족한정범위</div>
-        <a href="https://directcarpromots.cafe24.com/" target="_blank" class="description-link">가족 운전자 범위를 설정하는 현명한 방법. 보험료 절약과 보장의 균형을 맞추는 가족 한정 특약의 상세 범위를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가족한정범위</div>
-        <a href="https://directbpmom.withusdone.com/" target="_blank" class="description-link">가족 구성원의 운전 여부에 따라 달라지는 보험료. 가족 한정 운전 특약의 적용 범위와 주의사항을 명확하게 파악하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 경력인정</div>
-        <a href="https://bohumpromotionr.cafe24.com/" target="_blank" class="description-link">군 운전병 경력, 회사 차량 운전 경력 등을 인정받아 보험료를 할인받는 방법. 경력 인정 제도의 상세 요건을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험견적</div>
-        <a href="https://directbpmof.withusdone.com/" target="_blank" class="description-link">수많은 옵션 속에서 나만의 베스트 견적을 찾는 여정, 지금 바로 시작하여 맞춤형 설계를 통해 보험료를 최적화해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료할증</div>
-        <a href="https://directapmoy.withusdone.com/" target="_blank" class="description-link">사고 이력에 따른 보험료 할증 폭과 기준을 명확히 파악하여, 다음 갱신 시 예상되는 보험료 인상분을 미리 계산해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가입</div>
-        <a href="https://directbpmoq.withusdone.com/" target="_blank" class="description-link">안전한 운전을 위한 의무이자 권리, 자동차 보험 가입의 핵심 절차와 필요한 서류를 간결하게 정리하여 손쉽게 가입을 완료하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험회사순위</div>
-        <a href="http://directcarpromotg.cafe24.com/" target="_blank" class="description-link">고객 만족도와 보상 서비스 품질을 기준으로 한 신뢰도 높은 보험사 순위를 확인하여 후회 없는 선택을 위한 참고 자료로 활용해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="http://bohumpromotionc.cafe24.com/" target="_blank" class="description-link">1년 단위로 납부하는 보험료의 총액을 미리 예측하세요. 연간 예산을 책정하고 분할 납부 시의 장단점을 함께 고려할 수 있습니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가격비교</div>
-        <a href="http://directcarpromotl.cafe24.com/" target="_blank" class="description-link">단 몇 분 투자로 수십만원을 절약할 수 있는 비밀! 여러 보험사의 가격을 투명하게 비교하여 가장 경제적인 상품을 찾아내세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험책임보험</div>
-        <a href="https://directepmox.withusdone.com/" target="_blank" class="description-link">자동차 운전자라면 반드시 가입해야 하는 최소한의 보장. 책임보험의 법적 의무와 최소 보장 한도를 정확히 이해하고 대비하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 경력인정</div>
-        <a href="https://directupromotionc.withusdone.com/" target="_blank" class="description-link">운전 경력을 인정받아 보험료를 할인받는 숨겨진 팁. 군 운전병, 가족 보험 가입 등 다양한 경력 인정 방법을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 조회</div>
-        <a href="https://directapmow.withusdone.com/" target="_blank" class="description-link">내가 가입한 자동차 보험의 상세 내역을 간편하게 조회합니다. 보장 내용, 만기일, 특약 사항을 확인하여 불필요한 중복 가입을 방지하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자차보험가입</div>
-        <a href="http://directcarpromota.cafe24.com/" target="_blank" class="description-link">내 차를 위한 가장 확실한 보호, 자차 보험 가입의 필요성과 자기부담금 설정 노하우를 통해 현명한 가입 결정을 내리세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료싼곳</div>
-        <a href="https://directkpmon.withusdone.com/" target="_blank" class="description-link">보장 내용은 유지하면서도 보험료는 가장 저렴한 곳을 찾는 비결. 비교 견적을 통해 숨겨진 최저가 보험사를 발견해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비교견적</div>
-        <a href="http://bohumpromotiond.cafe24.com/" target="_blank" class="description-link">단 한 번의 입력으로 주요 보험사들의 경쟁력 있는 견적을 한눈에 비교합니다. 최저가 보험료를 찾는 가장 확실하고 빠른 방법입니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차종합보험가격</div>
-        <a href="http://directcarpromotb.cafe24.com/" target="_blank" class="description-link">책임보험을 넘어선 완벽한 보장, 자동차 종합 보험의 평균 가격대를 확인하고 내 조건에 맞는 합리적인 비용을 예측해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험다이렉트견적</div>
-        <a href="https://directepmod.withusdone.com/" target="_blank" class="description-link">온라인으로 직접 산출하여 중간 수수료를 절감합니다. 가장 빠르고 경제적인 다이렉트 보험 견적을 지금 바로 받아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험비교사이트</div>
-        <a href="https://directbpmou.withusdone.com/" target="_blank" class="description-link">다이렉트 상품만을 전문적으로 비교하는 플랫폼. 투명한 가격 경쟁을 통해 가장 저렴하고 조건 좋은 보험 상품을 찾아드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">인터넷자동차보험</div>
-        <a href="http://directcarpromoto.cafe24.com/" target="_blank" class="description-link">시간과 장소에 구애받지 않고 손쉽게 가입하는 온라인 보험. 인터넷 채널을 통해 얻을 수 있는 추가적인 할인 혜택을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="https://directapmok.withusdone.com/" target="_blank" class="description-link">자동차 보험료의 연간 총액을 예측하고, 월별 또는 분할 납부 시의 금융 계획을 세울 수 있도록 정확한 1년 보험료를 산출해드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">만26세 자동차보험</div>
-        <a href="http://bohumpromotionk.cafe24.com/" target="_blank" class="description-link">만 26세 이상 운전자에게 적용되는 보험료 할인 기준의 변화. 이 시기를 놓치지 않고 보험료를 대폭 절감하는 방법을 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="https://directcarunmf.withusdone.com/" target="_blank" class="description-link">차량 유지비의 큰 부분을 차지하는 1년치 자동차 보험료. 운전 조건에 따른 정확한 예상 비용을 산출하여 재정 계획에 반영하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험료</div>
-        <a href="https://directbpmor.withusdone.com/" target="_blank" class="description-link">중간 유통 마진 없이 투명하게 공개되는 다이렉트 보험료의 세계. 지금 바로 계산하고 기존 대비 절약 효과를 경험해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료인상</div>
-        <a href="https://directcpmoc.withusdone.com/" target="_blank" class="description-link">갱신 시 예상되는 보험료 인상 요인을 미리 파악하고 대응하세요. 사고 이력, 물가 상승률 등 인상 기준을 면밀히 분석해드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 만기</div>
-        <a href="https://directupromotionq.withusdone.com/" target="_blank" class="description-link">보험 만기일을 놓치지 않고 현명하게 갱신하는 것이 중요합니다. 만기일 전후로 준비해야 할 사항과 절차를 상세히 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가입방법</div>
-        <a href="https://directupromotionw.withusdone.com/" target="_blank" class="description-link">복잡하게 생각했던 자동차 보험 가입을 쉽고 빠르게 완료하는 단계별 가이드. 다이렉트와 설계사 가입의 장단점을 비교해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험할증기준</div>
-        <a href="https://directapmoi.withusdone.com/" target="_blank" class="description-link">보험료 인상에 직접적인 영향을 미치는 할증 기준의 모든 것. 사고 유형별, 규모별 할증률을 명확히 이해하고 관리하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차보험료</div>
-        <a href="http://directcarpromotk.cafe24.com/" target="_blank" class="description-link">내 차의 가치와 운전 조건에 따라 산출되는 핵심 비용. 최적의 보장으로 가장 합리적인 차 보험료를 찾는 비교 전략을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비교견적사이트</div>
-        <a href="https://bohumpromotionm.cafe24.com/" target="_blank" class="description-link">수많은 보험사의 견적을 한 번에 비교할 수 있는 전문 사이트. 시간 낭비 없이 가장 유리한 조건을 찾아주는 스마트한 해결책입니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험추천</div>
-        <a href="http://bohumpromotiong.cafe24.com/" target="_blank" class="description-link">운전자 연령, 차량 용도 등 맞춤형 조건에 기반하여 엄선된 추천 상품. 보장은 든든하게, 보험료는 저렴하게 가입하는 길을 제시합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험조회</div>
-        <a href="https://bohumpromotions.cafe24.com/" target="_blank" class="description-link">현재 가입되어 있는 내 자동차 보험의 상세 내역을 간편하게 조회합니다. 보장 범위와 만기일을 확인하여 갱신 시기를 놓치지 마세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">만26세 자동차보험</div>
-        <a href="https://directcarunmea.withusdone.com/" target="_blank" class="description-link">만 26세가 되어 보험료가 대폭 할인되는 기회를 포착하세요. 연령 기준 변경에 따른 보험료 절약 폭과 가입 팁을 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">만21세 자동차보험</div>
-        <a href="https://directcarunmec.withusdone.com/" target="_blank" class="description-link">운전 경험이 적은 만 21세 운전자를 위한 특별 보험료 절약 전략. 책임 보험과 종합 보험의 선택 기준을 명확히 제시합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">20대자동차보험</div>
-        <a href="https://directcarunmee.withusdone.com/" target="_blank" class="description-link">보험료가 높은 20대 운전자를 위한 최적의 할인 특약과 비교 견적 전략. 부담을 줄이고 안정적인 보장을 확보하는 방법을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">신차보험가입</div>
-        <a href="https://directcarunmei.withusdone.com/" target="_blank" class="description-link">새 차를 위한 첫 보험 가입은 신중해야 합니다. 차량 가액 보존을 위한 필수 특약과 보험료 절약 팁을 확인하고 완벽한 설계를 하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 연령</div>
-        <a href="https://directcarunmen.withusdone.com/" target="_blank" class="description-link">운전자 연령 기준에 따라 천차만별인 보험료의 비밀. 연령 한정 특약의 유리한 시점을 파악하여 보험료를 절감하는 방법을 모색하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">20대초반자동차보험</div>
-        <a href="https://directcarunma.withusdone.com/" target="_blank" class="description-link">보험료가 가장 부담스러운 20대 초반 운전자를 위한 절약 노하우. 저렴한 책임 보험과 다양한 할인 혜택을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료1년</div>
-        <a href="https://directcarunmf.withusdone.com/" target="_blank" class="description-link">차량 유지비의 큰 부분을 차지하는 1년치 자동차 보험료. 운전 조건에 따른 정확한 예상 비용을 산출하여 재정 계획에 반영하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 경력인정</div>
-        <a href="https://directupromotionc.withusdone.com/" target="_blank" class="description-link">운전 경력을 인정받아 보험료를 할인받는 숨겨진 팁. 군 운전병, 가족 보험 가입 등 다양한 경력 인정 방법을 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차누구나보험</div>
-        <a href="https://directupromotiond.withusdone.com/" target="_blank" class="description-link">운전자 범위를 '누구나'로 설정했을 때의 장단점과 보험료 영향. 모든 운전자를 포괄하는 경우의 보장 범위를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">첫차보험료</div>
-        <a href="https://directupromotioni.withusdone.com/" target="_blank" class="description-link">설레는 첫차 구매 후 만나는 첫 보험료. 운전 경력이 없는 초보 운전자를 위한 보험료 절감 전략과 필수 보장 항목을 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차보험계산</div>
-        <a href="https://directupromotionj.withusdone.com/" target="_blank" class="description-link">복잡한 변수를 고려한 정확한 내 차 보험료 계산. 다양한 할인 요소를 적용하여 최종 납부 금액을 예측하고 재정 계획을 세우세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차량보험료</div>
-        <a href="https://directupromotionl.withusdone.com/" target="_blank" class="description-link">차량 유지비의 핵심 요소, 연간 차량 보험료를 정확하게 산출합니다. 모델, 연식, 사고 이력을 종합적으로 고려한 견적을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험자녀할인</div>
-        <a href="https://directupromotionn.withusdone.com/" target="_blank" class="description-link">만 6세 이하 자녀가 있는 경우 받을 수 있는 특별한 보험료 할인 혜택. 가입 요건과 할인율을 확인하고 혜택을 놓치지 마세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자차보험료</div>
-        <a href="https://directupromotiono.withusdone.com/" target="_blank" class="description-link">자기 차량 손해에 대비하는 자차 보험의 예상 보험료. 차량 가액과 자기 부담금 설정에 따른 보험료 변동 폭을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">중고차보험료</div>
-        <a href="https://directupromotionp.withusdone.com/" target="_blank" class="description-link">새 차와는 다른 중고차의 보험료 산정 기준. 차량 연식과 감가상각을 고려한 합리적인 중고차 보험료를 비교하고 가입하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험추천</div>
-        <a href="https://directupromotionr.withusdone.com/" target="_blank" class="description-link">수많은 다이렉트 상품 중 가장 가성비 좋은 상품만을 엄선하여 추천합니다. 보장과 가격의 균형을 이룬 최고의 선택지를 찾아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비</div>
-        <a href="https://directupromotions.withusdone.com/" target="_blank" class="description-link">자동차 보험에 지출되는 총 비용을 상세하게 분석합니다. 불필요한 지출을 줄이고 효율적인 보험 가입을 위한 비용 절감 전략을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차책임보험가격</div>
-        <a href="https://directcarpromotv.cafe24.com/" target="_blank" class="description-link">법적 의무 사항인 책임보험의 최소 가입 비용. 가장 기본적인 보장을 가장 저렴한 가격으로 가입하는 방법을 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 다이렉트 비교</div>
-        <a href="https://directcarpromotw.cafe24.com/" target="_blank" class="description-link">다이렉트 채널의 장점을 활용한 보험료 절약 비결. 주요 보험사들의 다이렉트 상품을 비교하고 최적의 가입 조건을 선택하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차다이렉트보험</div>
-        <a href="https://directapmod.withusdone.com/" target="_blank" class="description-link">중간 유통 마진 없이 저렴하게 가입하는 혁신적인 보험 방식. 다이렉트 보험의 특징과 보험료 절약 효과를 상세히 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험조회</div>
-        <a href="https://directapmol.withusdone.com/" target="_blank" class="description-link">내가 가입한 자동차 보험의 상세 내역을 간편하게 조회합니다. 보장 내용, 만기일, 특약 사항을 확인하여 불필요한 중복 가입을 방지하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차종합보험</div>
-        <a href="https://directapmov.withusdone.com/" target="_blank" class="description-link">책임보험을 넘어 대인, 대물, 자차까지 포괄하는 완벽한 보장. 종합보험 가입의 필요성과 보장 범위를 상세히 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차다이렉트보험비교</div>
-        <a href="https://directapmoz.withusdone.com/" target="_blank" class="description-link">온라인 채널의 장점을 활용하여 다이렉트 보험 상품을 비교합니다. 가장 저렴하면서도 보장 좋은 상품을 찾는 스마트한 방법을 알려드립니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차보험료</div>
-        <a href="https://directbpmoc.withusdone.com/" target="_blank" class="description-link">내 차량의 종류, 연식, 운전 경력 등을 종합적으로 고려한 실질적인 차 보험료. 합리적인 가격으로 가입하는 비교 노하우를 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">20대자동차보험료</div>
-        <a href="https://directbpmod.withusdone.com/" target="_blank" class="description-link">운전 경력이 적어 보험료 부담이 큰 20대 운전자를 위한 특별 할인 정보. 보험료를 절약하는 최적의 가입 전략을 제시합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">차보험</div>
-        <a href="https://directbpmog.withusdone.com/" target="_blank" class="description-link">운전자라면 누구나 필수적으로 가입해야 하는 자동차 보험의 기본 정보. 보장 항목과 가입 절차를 간결하게 이해해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료조회</div>
-        <a href="https://directbpmot.withusdone.com/" target="_blank" class="description-link">간편하고 빠르게 내 조건에 맞는 예상 보험료를 조회합니다. 다양한 할인 특약 적용 후의 최종 보험료를 지금 바로 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험나이</div>
-        <a href="https://directbpmoj.withusdone.com/" target="_blank" class="description-link">운전자 연령 기준에 따른 보험료 할인 및 할증 폭을 분석합니다. 나이에 맞는 연령 한정 특약을 설정하여 보험료를 절약하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">경차보험료</div>
-        <a href="https://directbpmov.withusdone.com/" target="_blank" class="description-link">낮은 배기량으로 보험료 할인 혜택을 누릴 수 있는 경차 보험. 경차 소유자에게 유리한 보험료 산출 기준과 특약을 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험갱신기간</div>
-        <a href="https://directcpmog.withusdone.com/" target="_blank" class="description-link">보험 만기 전후로 반드시 확인해야 할 갱신 기간. 적절한 시기를 놓치지 않고 안정적으로 계약을 연장하는 방법을 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험료비교견적</div>
-        <a href="https://directcpmol.withusdone.com/" target="_blank" class="description-link">온라인으로 직접 비교하고 최저가 다이렉트 보험료를 찾는 방법. 불필요한 수수료를 줄이고 합리적인 가격으로 가입하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험 신규</div>
-        <a href="https://directcpmom.withusdone.com/" target="_blank" class="description-link">운전 경력이 전무한 초보 운전자를 위한 신규 보험 가입 안내. 경력 인정 특약과 보험료 절감 팁을 중심으로 상세히 설명합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">내차보험조회</div>
-        <a href="https://directcpmor.withusdone.com/" target="_blank" class="description-link">현재 내가 가입한 자동차 보험의 모든 정보를 간편하게 조회합니다. 보장 내역, 만기일, 가입 회사를 손쉽게 확인하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험사확인</div>
-        <a href="https://directhpmoj.withusdone.com/" target="_blank" class="description-link">내가 가입한 자동차 보험 회사의 이름이 기억나지 않을 때! 간편 조회 서비스를 통해 가입된 보험사를 정확하게 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">내차보험료</div>
-        <a href="https://directhpmoq.withusdone.com/" target="_blank" class="description-link">내 차의 가치와 나의 운전 조건이 만들어내는 실제 보험료. 여러 회사의 견적을 비교하여 가장 저렴하고 합리적인 가격을 찾아내세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험견적비교</div>
-        <a href="https://directipmoq.withusdone.com/" target="_blank" class="description-link">보험 가입 전 반드시 거쳐야 할 핵심 절차. 다양한 보험사의 견적을 투명하게 비교하여 가장 유리한 조건을 확보하는 방법을 제시합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험료계산</div>
-        <a href="https://directjpmoe.withusdone.com/" target="_blank" class="description-link">복잡한 수식 없이 간편하게 다이렉트 보험료를 산출합니다. 온라인 계산기를 통해 예상 보험료를 빠르게 확인하고 예산을 절약하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험견적</div>
-        <a href="https://directgpmoy.withusdone.com/" target="_blank" class="description-link">차량 정보와 운전 특성에 따른 맞춤형 보험료 견적을 제공합니다. 다양한 할인 특약을 적용한 최종 견적을 지금 바로 받아보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험비교어플</div>
-        <a href="https://directlpmov.withusdone.com/" target="_blank" class="description-link">언제 어디서든 스마트폰으로 간편하게 보험료를 비교합니다. 모바일 앱을 활용하여 실시간으로 최저가 견적을 조회해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험가입시간</div>
-        <a href="https://directmpmob.withusdone.com/" target="_blank" class="description-link">보험 가입의 효력이 발생하는 시간 기준을 정확히 파악하여, 예상치 못한 사고에도 빈틈없이 보장을 받을 수 있도록 준비하세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차다이렉트보험견적</div>
-        <a href="https://directmpmom.withusdone.com/" target="_blank" class="description-link">중간 유통 과정을 없애 가격 경쟁력을 높인 다이렉트 견적. 온라인으로 직접 산출하여 합리적인 보험료를 지금 바로 확인해보세요.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">다이렉트자동차보험가입</div>
-        <a href="https://directmpmoo.withusdone.com/" target="_blank" class="description-link">불필요한 수수료 없이 저렴하게 보험에 가입하는 가장 확실한 방법. 다이렉트 채널을 통한 간편한 가입 절차를 안내합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차다이렉트보험추천</div>
-        <a href="https://directmpmop.withusdone.com/" target="_blank" class="description-link">가격과 보장의 균형을 이룬 우수 다이렉트 보험 상품만을 선별하여 추천합니다. 현명한 운전자를 위한 최적의 선택지를 제시합니다.</a>
-    </div>
-    
-    <div class="grid-item">
-        <div class="keyword">자동차보험료예상</div>
-        <a href="https://directmpmol.withusdone.com/" target="_blank" class="description-link">다음 갱신 또는 신규 가입 시 예상되는 보험료를 미리 산출합니다. 다양한 할인 특약 적용 후의 최종 예상 금액을 확인하세요.</a>
-    </div>
-    
-    </div>
+<footer style="text-align: center; padding: 20px; margin-top: 40px; background-color: var(--color-text-dark); color: var(--color-background-soft); font-size: 0.9em; border-radius: 15px 15px 0 0;">
+    <p>본 페이지는 자동차 보험 정보 제공을 목적으로 하며, 실제 가입은 해당 링크를 통해 진행됩니다. (Total: <?php echo $count; ?> items)</p>
+</footer>
 
 </body>
 </html>
